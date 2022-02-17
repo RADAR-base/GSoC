@@ -17,5 +17,5 @@ Below is a high-level architecture diagram of the platform:
 
 ## Project Ideas
 
-A list of project ideas can be found here. For questions or discussions, please contact us through Slack.
+A list of project ideas can be found [here](https://github.com/RADAR-base/GSoC/tree/main/project-ideas). For questions or discussions, please contact us through Slack.
 
