@@ -52,10 +52,52 @@ The aRMT app (also known as Questionnaire app) is an app used to deliver questio
 
 The protocol also contains urls of the questionnaire definitions json files. These files can be automatically generated from Redcap (survey management application) or can be manually written. Currently the files have to be added to the protocols, which then have to be configured with the app, in order to test them. 
 
-**Goal:** One of the goals is to create a simple application that will take in questionnaires and human-readable timings (for example 'everyday at 9am') and generate a protocol.json file according to this.
-A sample schedule (a list of questionnaires with timestamps) will also need to be generated so that the user can review this.
-In the same application, it would be good to have a questionnaire testing UI that takes in a questionnaire definition file and displays a sample of what it would look like in the aRMT UI.
+**Goals:** 
+- One of the goals is to create a simple application that will take in questionnaires and human-readable timings (for example 'everyday at 9am') and generate a protocol.json file according to this.
+- A sample schedule (a list of questionnaires with timestamps) will also need to be generated so that the user can review this.
+- In the same application, it would be good to have a questionnaire testing UI that takes in a questionnaire definition file and displays a sample of what it would look like in the aRMT UI.
 
 **Required Skills:** Javascript, Typescript, React/Angular
+
+***
+
+### pRMT App
+
+The pRMT app is an app used to collect passive data from participants' phone sensors and integrated devices. 
+
+**[1] iOS version of pRMT with HealthKit**
+
+**Overview**: Currently, the platform is able to collect passive data through Android phones. 
+
+**Goal:** One of the goals is to develop an iOS version of the pRMT app by integrating with `HealthKit`.
+
+**Required Skills:** ..
+
+***
+
+### iOT Framework
+
+The RADAR-IoT is a lightweight, flexible, configurable and highly extensible framework for IoT devices (like a raspberry pi) that allows for capturing sensor data (and potentially other devices) and consuming it in different ways including sending it to the RADAR-base mHealth platform backend.
+
+**[1] Production-ready Version of the Framework**
+
+**Overview**: The IoT gateway framework for RADAR-base differentiates itself from related work by being device, sensor and programming language agnostic, supporting all types of common IoT input-output protocols, being open-source, modular and easily extensible, providing support for multiple data sinks (like mHealth platform, on-device AI and ML, dashboard and more), interoperability, providing industry-leading security and medical level privacy, and providing integration to a well established open-source mHealth cloud platform for data collection, aggregation, transformation and heavyweight analytics with different types of data sources like wearables, IoT sensors, mobile apps, eCRFs.
+
+The framework is currently in the Proof-Of-Concept (POC) stage and has been tested working in a staging environment. We want to finalise the framework and make it production-ready. This will involve working on core aspects of the framework like sensor states machines, M2M communication protocols and implementing advanced visibility into the framework.
+
+**Goals:** 
+- Extend support for industry-standard IoT protocols.	
+  - Implement an MQTT producer and a consumer to capture and utilise sensor data.
+  - Deploy an MQTT broker locally using docker and build and test the implementations using Mock sensor.
+- Provide visibility and insight into the framework and sensors allowing for more robust fault isolation.
+  - Add State machine to the sensor to capture and track sensor events lifecycle.
+  - Publish device/sensor events and logs to pubsub system
+- Add more abstractions and extensions to the framework.
+- Make the framework easier to develop and deploy.
+- Make the framework production-ready and to be used in various research studies.
+
+**Required Skills:** IoT, Python
+
+**Helpful Skills:** Kotlin/Java, Docker, Automation, I/O protocols like GPIO
 
 ***
