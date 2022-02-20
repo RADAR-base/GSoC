@@ -20,6 +20,8 @@ The Management Portal is a component built by the RADAR-base community to manage
 
 **Required Skills:** Java, Javascript, Angular
 
+**Complexity:** Full time
+
 ***
 
 ### Dashboards
@@ -34,6 +36,7 @@ The Management Portal is a component built by the RADAR-base community to manage
 
 **Required Skills:** Javascipt, Typescript, Angular, ChartJS
 
+**Complexity:** Full time
 ***
 
 **[2] Grafana Plugins**
@@ -67,6 +70,7 @@ The protocol also contains urls of the questionnaire definitions json files. The
 
 **Required Skills:** Javascript, Typescript, React/Angular
 
+**Complexity:** Full time
 ***
 
 ### pRMT App
@@ -83,6 +87,7 @@ The pRMT app is an app used to collect passive data from participants' phone sen
 
 **Required Skills:** Swift
 
+**Complexity:** Full time
 ***
 
 ### iOT Framework
@@ -112,4 +117,5 @@ The framework is currently in the Proof-Of-Concept (POC) stage and has been test
 
 **Helpful Skills:** Kotlin/Java, Docker, Automation, I/O protocols like GPIO
 
+**Complexity:** Full time
 ***
