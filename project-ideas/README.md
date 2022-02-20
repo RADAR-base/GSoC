@@ -12,6 +12,8 @@ The Management Portal is a component built by the RADAR-base community to manage
 
 **[1] Organization and Project Archival and Export**
 
+**Mentors**: nivemaham, blootvoets
+
 **Overview**: At the moment archival of organisation and project entities are not easy or possible in Management portal. 
 
 **Goal:** The goal is to develop a project archival feature which allows archiving of inactive projects and exporting of data/metadata.
@@ -24,15 +26,19 @@ The Management Portal is a component built by the RADAR-base community to manage
 
 **[1] Patient/participant Dashboard**
 
+**Mentors**: nivemaham, mpgxvii, blootvoets
+
 **Overview**: The platform collects active and passive data from the participants which is stored for researchers to access. There are data completeness visualisations which researchers also have access to. Currently the participants are not able to see their own data (apart from third-party dashboards, e.g. Fitbit). 
 
 **Goal:** The goal is to develop a web-based & mobile-friendly visualisation tool for both passive and active data. This would complete the loop of collecting data and feeding the processed/aggregated versions of the data back to the participant. (Can also reuse previous developments done for H2O)
 
-**Required Skills:** Javascript, Typescript, D3
+**Required Skills:** Javascipt, Typescript, Angular, ChartJS
 
 ***
 
 **[2] Grafana Plugins**
+
+**Mentors**: nivemaham, mpgxvii
 
 **Overview**: The platform uses Grafana to visualise the data coming from the devices and apps. A TimescaleDB Kafka connector delivers both active and passive data from the Kafka topics to a TimescaleDB database. Data from the database is then used to visualise data completeness through various dashboards in Grafana. Currently, the dashboards that have been created are specific to the studies running them (with specific devices and requirements). For example, one dashboard is called "Fitbit Weartime", which shows the daily number of hours the participant wore the Fitbit device. However, not all studies may be using the Fitbit device. It would be helpful to generalise the dashboards and allow easy configurations.
 
@@ -47,6 +53,8 @@ The Management Portal is a component built by the RADAR-base community to manage
 The aRMT app (also known as Questionnaire app) is an app used to deliver questionnaires to participants in a study. 
 
 **[1] aRMT Protocol Generator and Questionnaire Tester**
+
+**Mentors**: nivemaham, mpgxvii
 
 **Overview**: The app takes in a protocol.json file and uses this to generate a questionnaire schedule for the participant based on their enrolment date. The protocol requires a list of offsets which are used to calculate the timings from the enrolment date. For example: {"unit": "hour", "unitsFromZero": [9, 12]} will generate that questionnaire at 9am and 12pm (with the enrolment date as the offset). Currently, these timings and offsets are manually calculated and added to the protocol.json file. 
 
@@ -67,11 +75,13 @@ The pRMT app is an app used to collect passive data from participants' phone sen
 
 **[1] iOS version of pRMT with HealthKit**
 
+**Mentors**: peyman, blootvoets
+
 **Overview**: Currently, the platform is able to collect passive data through Android phones. 
 
 **Goal:** One of the goals is to develop an iOS version of the pRMT app by integrating with `HealthKit`.
 
-**Required Skills:** ..
+**Required Skills:** Swift
 
 ***
 
@@ -80,6 +90,8 @@ The pRMT app is an app used to collect passive data from participants' phone sen
 The RADAR-IoT is a lightweight, flexible, configurable and highly extensible framework for IoT devices (like a raspberry pi) that allows for capturing sensor data (and potentially other devices) and consuming it in different ways including sending it to the RADAR-base mHealth platform backend.
 
 **[1] Production-ready Version of the Framework**
+
+**Mentors**: yatharth, heet
 
 **Overview**: The IoT gateway framework for RADAR-base differentiates itself from related work by being device, sensor and programming language agnostic, supporting all types of common IoT input-output protocols, being open-source, modular and easily extensible, providing support for multiple data sinks (like mHealth platform, on-device AI and ML, dashboard and more), interoperability, providing industry-leading security and medical level privacy, and providing integration to a well established open-source mHealth cloud platform for data collection, aggregation, transformation and heavyweight analytics with different types of data sources like wearables, IoT sensors, mobile apps, eCRFs.
 
