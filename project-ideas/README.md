@@ -79,15 +79,22 @@ The pRMT app is an app used to collect passive data from participants' phone sen
 
 **[1] iOS version of pRMT with HealthKit**
 
-**Mentors**: peyman, blootvoets
+**Mentors**: peyman-mohtashami, blootvoets
 
-**Overview**: Currently, the platform is able to collect passive data through Android phones. 
+**Overview**: The RADAR-base Passive Mobile App (pRMT App) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices. Currently, the platform is able to collect passive data through Android phones. We want to develop and extend the iOS version of pRMT to collect data from HealthKit and send it to RADAR-base server. For this purpose, because in iOS devices we couldn't collect HealthKit data in background, we need a notification mechanism (via App Config) to provide configurations to periodically send notifications to start the app for data collection.
 
-**Goal:** One of the goals is to develop an iOS version of the pRMT app by integrating with `HealthKit`.
+**Current Status**: The app is in initial state and with it the participant can sign in and collect her/his step count data from HealthKit.
+
+**Source Code**: https://github.com/RADAR-base/radar-prmt-ios
+
+**Goal:** 
+- Develop an iOS version of the pRMT app by integrating with `HealthKit`.
+- Develop and integrate the app to `App Config` to receive notifications for collecting the data from HealthKit and send it to RADAR-base server.
 
 **Required Skills:** Swift
 
 **Complexity:** Full time
+
 ***
 
 ### iOT Framework
