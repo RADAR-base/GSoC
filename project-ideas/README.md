@@ -22,9 +22,7 @@
 
 ***
 
-### Dashboards
-
-**[1] Patient/participant Dashboard**
+### Participant Dashboard
 
 **Mentors**: nivemaham, mpgxvii, blootvoets
 
@@ -37,7 +35,7 @@
 **Complexity:** Full time
 ***
 
-**[2] Grafana Plugins**
+### Grafana Plugin Dashboards
 
 **Mentors**: nivemaham, mpgxvii
 
@@ -49,13 +47,11 @@
 
 ***
 
-### aRMT App
-
-The aRMT app (also known as Questionnaire app) is an app used to deliver questionnaires to participants in a study. 
-
-**[1] aRMT Protocol Generator and Questionnaire Tester**
+### aRMT Protocol Generator and Questionnaire Tester**
 
 **Mentors**: nivemaham, mpgxvii
+
+**Background**: The aRMT app (also known as Questionnaire app) is an app used to deliver questionnaires to participants in a study. 
 
 **Overview**: The app takes in a protocol.json file and uses this to generate a questionnaire schedule for the participant based on their enrolment date. The protocol requires a list of offsets which are used to calculate the timings from the enrolment date. For example: {"unit": "hour", "unitsFromZero": [9, 12]} will generate that questionnaire at 9am and 12pm (with the enrolment date as the offset). Currently, these timings and offsets are manually calculated and added to the protocol.json file. 
 
@@ -71,13 +67,12 @@ The protocol also contains urls of the questionnaire definitions json files. The
 **Complexity:** Full time
 ***
 
-### pRMT App
 
-The pRMT app is an app used to collect passive data from participants' phone sensors and integrated devices. 
-
-**[1] iOS version of pRMT with HealthKit**
+### pRMT App iOS version (through HealthKit)**
 
 **Mentors**: peyman, blootvoets
+
+**Background**: The pRMT app is an app used to collect passive data from participants' phone sensors and integrated devices. 
 
 **Overview**: Currently, the platform is able to collect passive data through Android phones. 
 
@@ -88,7 +83,7 @@ The pRMT app is an app used to collect passive data from participants' phone sen
 **Complexity:** Full time
 ***
 
-### IoT Framework
+### IoT Production-Ready Framework
 
 **Overview:**
 The [RADAR-IoT](https://github.com/RADAR-base/RADAR-IoT) is a lightweight, flexible, configurable and highly extensible framework for IoT devices (like a raspberry pi)
