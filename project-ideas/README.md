@@ -87,7 +87,7 @@ The protocol also contains urls of the questionnaire definitions json files. The
 
 **Mentors**: peyman-mohtashami, blootvoets
 
-**Overview**: The (RADAR-base Passive Mobile App)[https://github.com/RADAR-base/radar-prmt-android] (pRMT App) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices.
+**Overview**: The [RADAR-base Passive Mobile App](https://github.com/RADAR-base/radar-prmt-android) (pRMT App) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices.
 
 **Current Status**: Currently, the platform is able to collect passive data through Android phones. We want to develop and extend the iOS version of pRMT to collect data from HealthKit and send it to RADAR-base server. For this purpose, because in iOS devices we couldn't collect HealthKit data in background, we need a notification mechanism (via App Config) to provide configurations to periodically send notifications to start the app for data collection.
 
