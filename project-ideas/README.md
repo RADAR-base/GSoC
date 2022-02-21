@@ -149,3 +149,44 @@ Apart from the goals above, the following general tasks are expected:
 **Complexity:** Full time
 
 ***
+
+### Fitbit Web API Subscription and Extension
+
+**Overview:**
+This [RADAR-REST-Connector](https://github.com/RADAR-base/RADAR-REST-Connector) contains a Kafka Connect source connector for a general REST API, and one for Fitbit in particular. This allows for pulling the wearable data from Fitbit servers using their [Web API](https://dev.fitbit.com/build/reference/web-api/). 
+
+**Current Status:**
+Currently, the implementation is using a PULL based approach where we make requests chronologically without any knowledge of presence of data on Fitbit's servers. This however comes with caveats:
+- There is no way of knowing if there is data present (for a particular time range) on the Fitbit servers or not. 
+- This makes it hard to keep track of late arriving (or out of order) data since the application needs to keep making requests backwards in time to check. This results in loss of data.
+- This also makes the system not real-time.
+
+The solution is to implement the [Fitbit Subscriptions API](https://dev.fitbit.com/build/reference/web-api/developer-guide/using-subscriptions/) (a PUSH based mechanism). In this case, the Fitbit API will send a notification to an endpoint on our application informing when there is new data available. On receiving this notification, we can make request for the specific data provided in the notification hence mitigating the issue stated above.
+
+Another part of extension to this application would be support for new types of data from the Fitbit API.
+
+**Goals:**
+
+
+| Goals                                                                                                   | Related Issues                                                                                                                                                             | Requirements                                                                                                                                                                                                                                            |
+|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Complete implementation for Fitbit Subscription API                                                     | [#88](https://github.com/RADAR-base/RADAR-REST-Connector/issues/88)                                                                                                                   | - This is a [work in pogress](https://github.com/RADAR-base/RADAR-REST-Connector/pull/90) - Complete the steps listed in PR description. - Use the [steps provided by fitbit](https://dev.fitbit.com/build/reference/web-api/developer-guide/using-subscriptions/#Implementing-the-Subscription-API) and integrate into the application.                                                                 |
+| Add support for [Fitbit Nutrition API](https://dev.fitbit.com/build/reference/web-api/nutrition/) | [#91](https://github.com/RADAR-base/RADAR-REST-Connector/issues/91)                                                             | - Read the specifications provided by Fitbit - Create [Schemas](https://github.com/RADAR-base/RADAR-Schemas) for the new data types - Implement new [Config](https://github.com/RADAR-base/RADAR-REST-Connector/blob/master/kafka-connect-fitbit-source/src/main/java/org/radarbase/connect/rest/fitbit/FitbitRestSourceConnectorConfig.java), [Routes](https://github.com/RADAR-base/RADAR-REST-Connector/tree/master/kafka-connect-fitbit-source/src/main/java/org/radarbase/connect/rest/fitbit/route) and [Converters](https://github.com/RADAR-base/RADAR-REST-Connector/tree/master/kafka-connect-fitbit-source/src/main/java/org/radarbase/connect/rest/fitbit/converter) to pull and store these data types - Add tests for new endpoints.                                                                                                                |
+| Extend timeseries data support for heart rate and sleep                                                      | [#89](https://github.com/RADAR-base/RADAR-REST-Connector/issues/89) | - Fitbit provides additional calculated fields like Resting heart rate in [Heart Rate timeseries](https://dev.fitbit.com/build/reference/web-api/heart-rate/#heart-rate-time-series) and important summaries like efficiency in [sleep data ](https://dev.fitbit.com/build/reference/web-api/sleep/#get-sleep-logs). These will be useful from an analysis point of view. - Update [Schemas](https://github.com/RADAR-base/RADAR-Schemas) to include new Fields - Make updates to the existing Routes and Converters to include these new fields - Create new Route and Converter wherever necessary - Extend tests to support these new implementations. |
+
+Apart from the goals above, the following general tasks are expected:
+- General understanding of REST APIs, Apache Kafka and the Kafka Connect architecture
+- Understand the association of classes and modules in the code with the components in the architecture.
+- Understand the specification provided by Fitbit Web API and design implementations based on that.
+- Build and run the RADAR-Fitbit-Connector on your local machine. 
+
+**Mentors**: [yatharth](https://github.com/yatharthranjan), [blootsvoets](https://github.com/blootsvoets)
+
+**Skills:** 
+
+- *Must have:* Java, REST API
+- *Good-to-have:* Docker, CI, Microservices, Kafka, Distributed Systems
+
+**Complexity:** Full time
+
+***
