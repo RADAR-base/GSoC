@@ -47,7 +47,7 @@
 
 ***
 
-### aRMT Protocol Generator and Questionnaire Tester**
+### aRMT Protocol Generator and Questionnaire Tester
 
 **Mentors**: nivemaham, mpgxvii
 
@@ -68,7 +68,7 @@ The protocol also contains urls of the questionnaire definitions json files. The
 ***
 
 
-### pRMT App iOS version (through HealthKit)**
+### pRMT App iOS version (through HealthKit)
 
 **Mentors**: peyman, blootvoets
 
