@@ -35,7 +35,7 @@
 
 **Current Status**: The platform collects active and passive data from the participants which is stored for researchers to access. There are data completeness visualisations which researchers also have access to. Currently the participants are not able to see their own data (apart from third-party dashboards, e.g. Fitbit).
 
-**Goal:** The goal is to develop a web-based & mobile-friendly visualisation tool for both passive and active data. This would complete the loop of collecting data and feeding the processed/aggregated versions of the data back to the participant. (Can also reuse previous developments done for H2O)
+**Goal:** The goal is to develop a web-based & mobile-friendly visualisation tool for both passive and active data. This would complete the loop of collecting data and feeding the processed/aggregated versions of the data back to the participant. 
 
 **Required Skills:** Javascipt, Typescript, Angular, ChartJS
 
