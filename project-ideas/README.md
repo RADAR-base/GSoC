@@ -85,7 +85,7 @@ The pRMT app is an app used to collect passive data from participants' phone sen
 
 **Current Status**: The app is in initial state and with it the participant can sign in and collect her/his step count data from HealthKit.
 
-**Source Code**: https://github.com/RADAR-base/radar-prmt-ios
+**Source Code**: https://github.com/RADAR-base/radar-prmt-ios/tree/feature-hk-step-count
 
 **Goal:** 
 - Develop an iOS version of the pRMT app by integrating with `HealthKit`.
