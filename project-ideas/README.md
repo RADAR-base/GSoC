@@ -87,7 +87,9 @@ The protocol also contains urls of the questionnaire definitions json files. The
 
 **Mentors**: peyman-mohtashami, blootvoets
 
-**Overview**: The [RADAR-base Passive Mobile App](https://github.com/RADAR-base/radar-prmt-android) (pRMT App) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices.
+<img align="left" src="https://user-images.githubusercontent.com/16977973/154981116-c95b52e2-acfe-44f0-99f2-cbc799c56a47.png"> 
+
+**Overview**: The [RADAR-base Passive Mobile App](https://github.com/RADAR-base/radar-prmt-android) (pRMT App) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices. (*Screenshot on the left is of the Android pRMT)
 
 **Current Status**: Currently, the platform is able to collect passive data through Android phones. We want to develop and extend the iOS version of pRMT to collect data from HealthKit and send it to RADAR-base server. For this purpose, because in iOS devices we couldn't collect HealthKit data in background, we need a notification mechanism (via App Config) to provide configurations to periodically send notifications to start the app for data collection.
 
@@ -95,6 +97,7 @@ The app is in initial state and with it the participant can sign in and collect 
 
 **Source Code**: https://github.com/RADAR-base/radar-prmt-ios/tree/feature-hk-step-count
 
+<br><br>
 **Goals:**
 | Goals | Related Issues | Requirements |
 |---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
