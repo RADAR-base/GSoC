@@ -6,13 +6,11 @@
 
 ## Project Ideas
 
-### Management Portal
-
-The Management Portal is a component built by the RADAR-base community to manage remote monitoring studies of participants/patients. It helps to manage studies, participants, data-sources and handles authentication and authorization of entities with the help of role based access control.
-
-**[1] Organization and Project Archival and Export**
+### Organization and Project Archival and Export on Management Portal
 
 **Mentors**: nivemaham, blootvoets
+
+**Background:** The Management Portal is a component built by the RADAR-base community to manage remote monitoring studies of participants/patients. It helps to manage studies, participants, data-sources and handles authentication and authorization of entities with the help of role based access control.
 
 **Overview**: At the moment archival of organisation and project entities are not easy or possible in Management portal. 
 
