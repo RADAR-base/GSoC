@@ -14,7 +14,11 @@
 
 **Overview**: At the moment archival of organisation and project entities are not easy or possible in Management portal. 
 
-**Goal:** The goal is to develop a project archival feature which allows archiving of inactive projects and exporting of data/metadata.
+**Goal:** 
+
+| Goals                                                                                                   | Related Issues                                                                                                                                                             | Requirements                                                                                                                                                                                                                                            |
+|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Management Portal project archival                                                     | -                                                                                                                   | - The goal is to allow the archival of inactive projects. This will make the project catalogue cleaner and cause less confusion for researchers.<br> - Another goal is to allow exporting of data/metadata from completed projects for analysis and back-tracking purposes.
 
 **Required Skills:** Java, Javascript, Angular
 
@@ -41,7 +45,11 @@
 
 **Overview**: The platform uses Grafana to visualise the data coming from the devices and apps. A TimescaleDB Kafka connector delivers both active and passive data from the Kafka topics to a TimescaleDB database. Data from the database is then used to visualise data completeness through various dashboards in Grafana. Currently, the dashboards that have been created are specific to the studies running them (with specific devices and requirements). For example, one dashboard is called "Fitbit Weartime", which shows the daily number of hours the participant wore the Fitbit device. However, not all studies may be using the Fitbit device. It would be helpful to generalise the dashboards and allow easy configurations.
 
-**Goal:** The goal is to create different Grafana dashboard configurations for different data/devices and types of visualisations needed. This would make dashboard setup easier and quicker for different studies. This would also allow easy reuse of configurations across studies.
+**Goal:** 
+| Goals                                                                                                   | Related Issues                                                                                                                                                             | Requirements                                                                                                                                                                                                                                            |
+|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| General Grafana dashboard configurations                                                     | -                                                                                                                   | - The goal is to create different Grafana dashboard configurations for different data/devices and types of visualisations needed. This would make dashboard setup easier and quicker for different studies. This would also allow easy reuse of configurations across studies.
+
 
 **Required Skills:** Grafana, TimescaleDB
 
@@ -58,9 +66,13 @@
 The protocol also contains urls of the questionnaire definitions json files. These files can be automatically generated from Redcap (survey management application) or can be manually written. Currently the files have to be added to the protocols, which then have to be configured with the app, in order to test them. 
 
 **Goals:** 
-- One of the goals is to create a simple application that will take in questionnaires and human-readable timings (for example 'everyday at 9am') and generate a protocol.json file according to this.
-- A sample schedule (a list of questionnaires with timestamps) will also need to be generated so that the user can review this.
-- In the same application, it would be good to have a questionnaire testing UI that takes in a questionnaire definition file and displays a sample of what it would look like in the aRMT UI.
+
+| Goals                                                                                                   | Related Issues                                                                                                                                                             | Requirements                                                                                                                                                                                                                                            |
+|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| A simple web aRMT protocol generator                                                     | -                                                                                                                   | - One of the goals is to create a simple application that will take in questionnaires and human-readable timings (for example 'everyday at 9am') and generate a protocol.json file according to this.<br> - A sample schedule (a list of questionnaires with timestamps) will also need to be generated so that the user can review this.                                                                  |
+| aRMT questionnaire definition tester | -                                                           | - In the same application, it would be good to have a questionnaire testing UI that takes in a questionnaire definition file and displays a sample of what it would look like in the aRMT UI.                                                                                                              |
+
+
 
 **Required Skills:** Javascript, Typescript, React/Angular
 
@@ -80,9 +92,11 @@ The protocol also contains urls of the questionnaire definitions json files. The
 
 **Source Code**: https://github.com/RADAR-base/radar-prmt-ios/tree/feature-hk-step-count
 
-**Goal:** 
-- Develop an iOS version of the pRMT app by integrating with `HealthKit`.
-- Develop and integrate the app to `App Config` to receive notifications for collecting the data from HealthKit and send it to RADAR-base server.
+**Goals:** 
+| Goals                                                                                                   | Related Issues                                                                                                                                                             | Requirements                                                                                                                                                                                                                                            |
+|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Develop an iOS pRMT app                                                     | -                                                                                                                   | - Develop an iOS version of the pRMT app by integrating with `HealthKit`.<br> - Develop and integrate the app to `App Config` to receive notifications for collecting the data from HealthKit and send it to RADAR-base server.
+                                                                
 
 **Required Skills:** Swift
 
@@ -127,11 +141,11 @@ implementing advanced visibility into the framework.
 
 | Goals                                                                                                   | Related Issues                                                                                                                                                             | Requirements                                                                                                                                                                                                                                            |
 |---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Extend support for industry-standard IoT protocols.                                                     | [#21](https://github.com/RADAR-base/RADAR-IoT/issues/21)                                                                                                                   | - Implement an MQTT producer and a consumer to capture and utilise sensor data. - Deploy an MQTT broker locally using docker and build and test the implementations using Mock sensor.                                                                  |
-| Provide visibility and insight into the framework and sensors allowing for more robust fault isolation. | [#5](https://github.com/RADAR-base/RADAR-IoT/issues/5), [#8](https://github.com/RADAR-base/RADAR-IoT/issues/8)                                                             | - Add State machine to the sensor to capture and track sensor events lifecycle. - Publish device/sensor events and logs to pubsub system                                                                                                                |
-| Making the framework easier to develop and deploy.                                                      | [#1](https://github.com/RADAR-base/RADAR-IoT/issues/1), [#14](https://github.com/RADAR-base/RADAR-IoT/issues/14), [#16](https://github.com/RADAR-base/RADAR-IoT/issues/16) | - Continuous Integration using Github Actions - Build and test the code, Build Docker images (on arm architectures) and push to Dockerhub - Improve Unit testing in the project - Make configurations needed for deployment easier and well documented. |
+| Extend support for industry-standard IoT protocols.                                                     | [#21](https://github.com/RADAR-base/RADAR-IoT/issues/21)                                                                                                                   | - Implement an MQTT producer and a consumer to capture and utilise sensor data.<br> - Deploy an MQTT broker locally using docker and build and test the implementations using Mock sensor.                                                                  |
+| Provide visibility and insight into the framework and sensors allowing for more robust fault isolation. | [#5](https://github.com/RADAR-base/RADAR-IoT/issues/5), [#8](https://github.com/RADAR-base/RADAR-IoT/issues/8)                                                             | - Add State machine to the sensor to capture and track sensor events lifecycle. <br>- Publish device/sensor events and logs to pubsub system                                                                                                                |
+| Making the framework easier to develop and deploy.                                                      | [#1](https://github.com/RADAR-base/RADAR-IoT/issues/1), [#14](https://github.com/RADAR-base/RADAR-IoT/issues/14), [#16](https://github.com/RADAR-base/RADAR-IoT/issues/16) | - Continuous Integration using Github Actions <br>- Build and test the code, Build Docker images (on arm architectures) and push to Dockerhub <br>- Improve Unit testing in the project <br>- Make configurations needed for deployment easier and well documented. |
 | Add more abstractions and extensions to the framework.                                                  | [#4](https://github.com/RADAR-base/RADAR-IoT/issues/4)                                                                                                                     | - Add a new abstraction layer in the form of DeviceHandlers to support new types of devices alongside traditional sensors. - Add support for new sensors                                                                                                |
-| Make the framework production-ready and to be used in various research studies.                         | [#19](https://github.com/RADAR-base/RADAR-IoT/issues/19), [#17](https://github.com/RADAR-base/RADAR-IoT/issues/17)                                                         | - Improve the production deployment docker-compose stack. - Make minor updates and fix bugs reported in the issues.                                                                                                                                     |
+| Make the framework production-ready and to be used in various research studies.                         | [#19](https://github.com/RADAR-base/RADAR-IoT/issues/19), [#17](https://github.com/RADAR-base/RADAR-IoT/issues/17)                                                         | - Improve the production deployment docker-compose stack. <br>- Make minor updates and fix bugs reported in the issues.                                                                                                                                     |
 
 
 Apart from the goals above, the following general tasks are expected:
@@ -145,47 +159,6 @@ Apart from the goals above, the following general tasks are expected:
 
 - *Must have:* IoT, Python
 - *Good-to-have:* Kotlin/Java, Docker, Automation, I/O protocols like GPIO
-
-**Complexity:** Full time
-
-***
-
-### Fitbit Web API Subscription and Extension
-
-**Overview:**
-The [RADAR-REST-Connector](https://github.com/RADAR-base/RADAR-REST-Connector) contains a [Kafka Connect source connector](https://docs.confluent.io/home/connect/overview.html) for a general REST API, and one for Fitbit in particular. This allows for pulling the wearable data from Fitbit servers using their [Web API](https://dev.fitbit.com/build/reference/web-api/). 
-
-**Current Status:**
-Currently, the implementation is using a PULL based approach where we make requests chronologically without any knowledge of presence of data on Fitbit's servers. This however comes with caveats:
-- There is no way of knowing if there is data present (for a particular time range) on the Fitbit servers or not. 
-- This makes it hard to keep track of late arriving (or out of order) data since the application needs to keep making requests backwards in time to check. This results in loss of data.
-- This also makes the system not real-time.
-
-The solution is to implement the [Fitbit Subscriptions API](https://dev.fitbit.com/build/reference/web-api/developer-guide/using-subscriptions/) (a PUSH based mechanism). In this case, the Fitbit API will send a notification to an endpoint on our application informing when there is new data available. On receiving this notification, we can make request for the specific data provided in the notification hence mitigating the issue stated above.
-
-Another part of extension to this application would be support for new types of data from the Fitbit API.
-
-**Goals:**
-
-
-| Goals                                                                                                   | Related Issues                                                                                                                                                             | Requirements                                                                                                                                                                                                                                            |
-|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Complete implementation for Fitbit Subscription API                                                     | [#88](https://github.com/RADAR-base/RADAR-REST-Connector/issues/88)                                                                                                                   | - This is a [work in pogress](https://github.com/RADAR-base/RADAR-REST-Connector/pull/90) - Complete the steps listed in PR description. - Use the [steps provided by fitbit](https://dev.fitbit.com/build/reference/web-api/developer-guide/using-subscriptions/#Implementing-the-Subscription-API) and integrate into the application.                                                                 |
-| Add support for [Fitbit Nutrition API](https://dev.fitbit.com/build/reference/web-api/nutrition/) | [#91](https://github.com/RADAR-base/RADAR-REST-Connector/issues/91)                                                             | - Read the specifications provided by Fitbit - Create [Schemas](https://github.com/RADAR-base/RADAR-Schemas) for the new data types - Implement new [Config](https://github.com/RADAR-base/RADAR-REST-Connector/blob/master/kafka-connect-fitbit-source/src/main/java/org/radarbase/connect/rest/fitbit/FitbitRestSourceConnectorConfig.java), [Routes](https://github.com/RADAR-base/RADAR-REST-Connector/tree/master/kafka-connect-fitbit-source/src/main/java/org/radarbase/connect/rest/fitbit/route) and [Converters](https://github.com/RADAR-base/RADAR-REST-Connector/tree/master/kafka-connect-fitbit-source/src/main/java/org/radarbase/connect/rest/fitbit/converter) to pull and store these data types - Add tests for new endpoints.                                                                                                                |
-| Extend timeseries data support for heart rate and sleep                                                      | [#89](https://github.com/RADAR-base/RADAR-REST-Connector/issues/89) | - Fitbit provides additional calculated fields like Resting heart rate in [Heart Rate timeseries](https://dev.fitbit.com/build/reference/web-api/heart-rate/#heart-rate-time-series) and important summaries like efficiency in [sleep data ](https://dev.fitbit.com/build/reference/web-api/sleep/#get-sleep-logs). These will be useful from an analysis point of view. - Update [Schemas](https://github.com/RADAR-base/RADAR-Schemas) to include new Fields - Make updates to the existing Routes and Converters to include these new fields - Create new Route and Converter wherever necessary - Extend tests to support these new implementations. |
-
-Apart from the goals above, the following general tasks are expected:
-- General understanding of REST APIs, Apache Kafka and the Kafka Connect architecture
-- Understand the association of classes and modules in the code with the components in the architecture.
-- Understand the specification provided by Fitbit Web API and design implementations based on that.
-- Build and run the RADAR-Fitbit-Connector on your local machine. 
-
-**Mentors**: [yatharth](https://github.com/yatharthranjan), [joris](https://github.com/blootsvoets), [nivethika](https://github.com/nivemaham)
-
-**Skills:** 
-
-- *Must have:* Java, REST API
-- *Good-to-have:* Docker, CI, Microservices, Kafka, Distributed Systems
 
 **Complexity:** Full time
 
