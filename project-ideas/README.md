@@ -6,13 +6,11 @@
 
 ## Project Ideas
 
-### Management Portal
-
-The Management Portal is a component built by the RADAR-base community to manage remote monitoring studies of participants/patients. It helps to manage studies, participants, data-sources and handles authentication and authorization of entities with the help of role based access control.
-
-**[1] Organization and Project Archival and Export**
+### Organization and Project Archival and Export on Management Portal
 
 **Mentors**: nivemaham, blootvoets
+
+**Background:** The Management Portal is a component built by the RADAR-base community to manage remote monitoring studies of participants/patients. It helps to manage studies, participants, data-sources and handles authentication and authorization of entities with the help of role based access control.
 
 **Overview**: At the moment archival of organisation and project entities are not easy or possible in Management portal. 
 
@@ -24,9 +22,7 @@ The Management Portal is a component built by the RADAR-base community to manage
 
 ***
 
-### Dashboards
-
-**[1] Patient/participant Dashboard**
+### Participant Dashboard
 
 **Mentors**: nivemaham, mpgxvii, blootvoets
 
@@ -39,7 +35,7 @@ The Management Portal is a component built by the RADAR-base community to manage
 **Complexity:** Full time
 ***
 
-**[2] Grafana Plugins**
+### Grafana Plugin Dashboards
 
 **Mentors**: nivemaham, mpgxvii
 
@@ -51,13 +47,11 @@ The Management Portal is a component built by the RADAR-base community to manage
 
 ***
 
-### aRMT App
-
-The aRMT app (also known as Questionnaire app) is an app used to deliver questionnaires to participants in a study. 
-
-**[1] aRMT Protocol Generator and Questionnaire Tester**
+### aRMT Protocol Generator and Questionnaire Tester
 
 **Mentors**: nivemaham, mpgxvii
+
+**Background**: The aRMT app (also known as Questionnaire app) is an app used to deliver questionnaires to participants in a study. 
 
 **Overview**: The app takes in a protocol.json file and uses this to generate a questionnaire schedule for the participant based on their enrolment date. The protocol requires a list of offsets which are used to calculate the timings from the enrolment date. For example: {"unit": "hour", "unitsFromZero": [9, 12]} will generate that questionnaire at 9am and 12pm (with the enrolment date as the offset). Currently, these timings and offsets are manually calculated and added to the protocol.json file. 
 
@@ -73,15 +67,14 @@ The protocol also contains urls of the questionnaire definitions json files. The
 **Complexity:** Full time
 ***
 
-### pRMT App
 
-The pRMT app is an app used to collect passive data from participants' phone sensors and integrated devices. 
-
-**[1] iOS version of pRMT with HealthKit**
+### pRMT App iOS version (through HealthKit)
 
 **Mentors**: peyman-mohtashami, blootvoets
 
-**Overview**: The RADAR-base Passive Mobile App (pRMT App) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices. Currently, the platform is able to collect passive data through Android phones. We want to develop and extend the iOS version of pRMT to collect data from HealthKit and send it to RADAR-base server. For this purpose, because in iOS devices we couldn't collect HealthKit data in background, we need a notification mechanism (via App Config) to provide configurations to periodically send notifications to start the app for data collection.
+**Background**: The RADAR-base Passive Mobile App (pRMT App) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices. 
+
+**Overview**: Currently, the platform is able to collect passive data through Android phones. We want to develop and extend the iOS version of pRMT to collect data from HealthKit and send it to RADAR-base server. For this purpose, because in iOS devices we couldn't collect HealthKit data in background, we need a notification mechanism (via App Config) to provide configurations to periodically send notifications to start the app for data collection. 
 
 **Current Status**: The app is in initial state and with it the participant can sign in and collect her/his step count data from HealthKit.
 
@@ -97,32 +90,62 @@ The pRMT app is an app used to collect passive data from participants' phone sen
 
 ***
 
-### iOT Framework
+### IoT Production-Ready Framework
 
-The RADAR-IoT is a lightweight, flexible, configurable and highly extensible framework for IoT devices (like a raspberry pi) that allows for capturing sensor data (and potentially other devices) and consuming it in different ways including sending it to the RADAR-base mHealth platform backend.
+**Overview:**
+The [RADAR-IoT](https://github.com/RADAR-base/RADAR-IoT) is a lightweight, flexible, configurable and highly extensible framework for IoT devices (like a raspberry pi)
+that allows for capturing sensor data (and potentially other devices) and consuming it in different ways
+including sending it to the [RADAR-base mHealth platform](https://radar-base.org/) backend. The gateway framework is highly decoupled and extensible. The architecture is shown below.
 
-**[1] Production-ready Version of the Framework**
 
-**Mentors**: yatharth, heet
+![RADAR-IoT Single device multi sensorSample flow](https://user-images.githubusercontent.com/11093544/154696409-2db70900-cd86-4af1-8b6f-e80f40890452.jpg)
 
-**Overview**: The IoT gateway framework for RADAR-base differentiates itself from related work by being device, sensor and programming language agnostic, supporting all types of common IoT input-output protocols, being open-source, modular and easily extensible, providing support for multiple data sinks (like mHealth platform, on-device AI and ML, dashboard and more), interoperability, providing industry-leading security and medical level privacy, and providing integration to a well established open-source mHealth cloud platform for data collection, aggregation, transformation and heavyweight analytics with different types of data sources like wearables, IoT sensors, mobile apps, eCRFs.
 
-The framework is currently in the Proof-Of-Concept (POC) stage and has been tested working in a staging environment. We want to finalise the framework and make it production-ready. This will involve working on core aspects of the framework like sensor states machines, M2M communication protocols and implementing advanced visibility into the framework.
 
-**Goals:** 
-- Extend support for industry-standard IoT protocols.	
-  - Implement an MQTT producer and a consumer to capture and utilise sensor data.
-  - Deploy an MQTT broker locally using docker and build and test the implementations using Mock sensor.
-- Provide visibility and insight into the framework and sensors allowing for more robust fault isolation.
-  - Add State machine to the sensor to capture and track sensor events lifecycle.
-  - Publish device/sensor events and logs to pubsub system
-- Add more abstractions and extensions to the framework.
-- Make the framework easier to develop and deploy.
-- Make the framework production-ready and to be used in various research studies.
+Presently, the RADAR-base platform focuses on personal sensing, these devices are typically battery powered and carried on the user. 
+Wearable devices available for integration are limited by the vendor availability of SDKs and REST-APIs, 
+however, for static IoT sensors there is a very large range of sensor modalities and providers, a significant improvement to the RADAR-base platform
+would enable the use of these sensors opening up a wide array of use cases within the health and other domains. 
+A single platform to collect, and analyse in real-time, ambulatory personal data (phone active/passive RMT, wearable data) 
+in parallel with static IoT sensor data provides a holistic 360° view of both personal and environmental state previously not possible.
 
-**Required Skills:** IoT, Python
+The IoT gateway framework for RADAR-base differentiates itself from related work by being device, sensor and programming language agnostic, 
+supporting all types of common IoT input-output protocols, being open-source, modular and easily extensible, providing support for multiple data sinks 
+(like mHealth platform, on-device AI and ML, dashboard and more), interoperability, providing industry-leading security and medical level privacy, 
+and providing integration to a well established open-source mHealth cloud platform for data collection, aggregation, 
+transformation and heavyweight analytics with different types of data sources like wearables, IoT sensors, mobile apps, eCRFs.
 
-**Helpful Skills:** Kotlin/Java, Docker, Automation, I/O protocols like GPIO
+**Current Status:**
+The framework is currently in the Proof-Of-Concept (POC) stage and has been tested working in a staging environment. There are various integrations including [GrovePi](https://www.dexterindustries.com/grovepi/) and the array of [sensors](https://github.com/RADAR-base/RADAR-IoT/wiki/Supported-Sensors) compatible with it. For more information take a look at the [wiki](https://github.com/RADAR-base/RADAR-IoT/wiki).
+
+We want to finalise the framework and make it production-ready. 
+This will involve working on core aspects of the framework like sensor states machines, M2M communication protocols and 
+implementing advanced visibility into the framework.
+
+**Goals:**
+
+
+| Goals                                                                                                   | Related Issues                                                                                                                                                             | Requirements                                                                                                                                                                                                                                            |
+|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Extend support for industry-standard IoT protocols.                                                     | [#21](https://github.com/RADAR-base/RADAR-IoT/issues/21)                                                                                                                   | - Implement an MQTT producer and a consumer to capture and utilise sensor data. - Deploy an MQTT broker locally using docker and build and test the implementations using Mock sensor.                                                                  |
+| Provide visibility and insight into the framework and sensors allowing for more robust fault isolation. | [#5](https://github.com/RADAR-base/RADAR-IoT/issues/5), [#8](https://github.com/RADAR-base/RADAR-IoT/issues/8)                                                             | - Add State machine to the sensor to capture and track sensor events lifecycle. - Publish device/sensor events and logs to pubsub system                                                                                                                |
+| Making the framework easier to develop and deploy.                                                      | [#1](https://github.com/RADAR-base/RADAR-IoT/issues/1), [#14](https://github.com/RADAR-base/RADAR-IoT/issues/14), [#16](https://github.com/RADAR-base/RADAR-IoT/issues/16) | - Continuous Integration using Github Actions - Build and test the code, Build Docker images (on arm architectures) and push to Dockerhub - Improve Unit testing in the project - Make configurations needed for deployment easier and well documented. |
+| Add more abstractions and extensions to the framework.                                                  | [#4](https://github.com/RADAR-base/RADAR-IoT/issues/4)                                                                                                                     | - Add a new abstraction layer in the form of DeviceHandlers to support new types of devices alongside traditional sensors. - Add support for new sensors                                                                                                |
+| Make the framework production-ready and to be used in various research studies.                         | [#19](https://github.com/RADAR-base/RADAR-IoT/issues/19), [#17](https://github.com/RADAR-base/RADAR-IoT/issues/17)                                                         | - Improve the production deployment docker-compose stack. - Make minor updates and fix bugs reported in the issues.                                                                                                                                     |
+
+
+Apart from the goals above, the following general tasks are expected:
+- General understanding of the RADAR-IoT framework architecture
+- Understand the association of classes and modules in the code with the components in the architecture.
+- Build and run the RADAR-IoT framework with Mock Sensor on your local machine. 
+
+**Mentors**: [yatharth](https://github.com/yatharthranjan), [heet](https://github.com/Hsankesara)
+
+**Skills:** 
+
+- *Must have:* IoT, Python
+- *Good-to-have:* Kotlin/Java, Docker, Automation, I/O protocols like GPIO
 
 **Complexity:** Full time
+
 ***

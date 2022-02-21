@@ -15,3 +15,45 @@ Each project is marked with a level of complexity and required effort to build. 
 
 We have indicated how we see a project's size and complexity. Some projects **may have some flexibility to change the scope** and complexity as the contributor and mentor see fit. Please note that these estimates are just an indication and each contributor can and should evaluate and propose their own estimate of full-time or half-time in their project proposal.
 
+## Application process
+- Choose the project idea you are interested and discuss with us via slack what you intend to achieve.
+- Refer to the project template and submit your proposal **directly via the Google Summer of Code website**.
+- Apply early, we will give you feedback where necessary once they are submitted.
+
+## Proposal Template
+
+# Project Title: 
+
+## Personal Background
+- Contributors Full Name
+- Email
+- Link to profile
+
+## Relevant Skills and Interests (You can include a brief CV)
+- Educational Background
+- Relevant (work, if applicable) experience
+- Prior open source contribution (if applicable)
+- Link to code sample in the related technology or area (if applicable)
+
+## Project Proposal
+- **Project Goal**: High level description of what you are trying to achieve
+    ### Project plan: 
+    
+    - Break the **project timeline** into periods of weeks. 
+    - Indicate your activities including 
+        - Bonding period
+        - Development phase 
+        - Testing, Documentation and Project completion
+    - Clearly explain the **deliverables and timelines**.
+
+    #### Availability
+    - **Expected working hours on GSoC 2022:** 
+This year, the full-time projects are expected a 35 hours a week contribution (large project) and half-time projects are expected a 18 hours a week contribution (medium size project)
+    
+    - **Other commitments (including community bonding period):**
+    Indicate your other commitments
+        - Do you have any school-related activities?
+        - Do you have any part-time/full-time job?
+        - Any planned absence/vacation days
+        
+**Note:** The project template is just guide for what we are interested to see in your proposal. You are free you make your own template provided you have included the most important information.
