@@ -153,7 +153,7 @@ Apart from the goals above, the following general tasks are expected:
 ### Fitbit Web API Subscription and Extension
 
 **Overview:**
-This [RADAR-REST-Connector](https://github.com/RADAR-base/RADAR-REST-Connector) contains a Kafka Connect source connector for a general REST API, and one for Fitbit in particular. This allows for pulling the wearable data from Fitbit servers using their [Web API](https://dev.fitbit.com/build/reference/web-api/). 
+The [RADAR-REST-Connector](https://github.com/RADAR-base/RADAR-REST-Connector) contains a [Kafka Connect source connector](https://docs.confluent.io/home/connect/overview.html) for a general REST API, and one for Fitbit in particular. This allows for pulling the wearable data from Fitbit servers using their [Web API](https://dev.fitbit.com/build/reference/web-api/). 
 
 **Current Status:**
 Currently, the implementation is using a PULL based approach where we make requests chronologically without any knowledge of presence of data on Fitbit's servers. This however comes with caveats:
@@ -180,7 +180,7 @@ Apart from the goals above, the following general tasks are expected:
 - Understand the specification provided by Fitbit Web API and design implementations based on that.
 - Build and run the RADAR-Fitbit-Connector on your local machine. 
 
-**Mentors**: [yatharth](https://github.com/yatharthranjan), [blootsvoets](https://github.com/blootsvoets)
+**Mentors**: [yatharth](https://github.com/yatharthranjan), [joris](https://github.com/blootsvoets), [nivethika](https://github.com/nivemaham)
 
 **Skills:** 
 
