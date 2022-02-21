@@ -89,26 +89,28 @@ The protocol also contains urls of the questionnaire definitions json files. The
 
 ---
 
-### pRMT App iOS version (through HealthKit)
+### Apple HealthKit integration to aRMT App
 
-**Mentors**: peyman-mohtashami, blootvoets
+**Mentors**: mpgxvii, peyman-mohtashami, blootvoets
+<img src="https://radar-base.org/wp-content/uploads/2018/09/armt-start-scrn.png" align="left" width="220">
 
-<img align="left" src="https://user-images.githubusercontent.com/16977973/154982296-b87062c7-dbc0-473f-a57d-0959335a4f53.png"> 
+**Overview**: The [RADAR-base Active Mobile app](https://github.com/RADAR-base/RADAR-Questionnaire) (also known as Questionnaire app) is an active remote monitoring app for collecting Patient Reported Outcomes (PRO) e.g. via questionnaires, active tasks and challenges. Active remote monitoring can be used to analyze cognitive behaviors, mental health and overall well-being of an individual or cohort.
 
-**Overview**: The [RADAR-base Passive Mobile App](https://github.com/RADAR-base/radar-prmt-android) (pRMT App) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices. (*Screenshot on the left is of the Android pRMT)
+(*Screenshot on the left is of the aRMT app)
 
-**Current Status**: Currently, the platform is able to collect passive data through Android phones. We want to develop and extend the iOS version of pRMT to collect data from HealthKit and send it to RADAR-base server. For this purpose, because in iOS devices we couldn't collect HealthKit data in background, we need a notification mechanism (via App Config) to provide configurations to periodically send notifications to start the app for data collection.
+**Current Status**: Currently, the platform is able to collect active data by questionnaires through Android and iOS phones. We want to develop and extend the iOS version of aRMT to collect data from Apple HealthKit and send it to RADAR-base server. For this purpose, because in iOS devices we couldn't collect HealthKit data in background, we need to collect data actively by notifying the participant via notifications to start collecting and sending the data. 
 
-The app is in initial state and with it the participant can sign in and collect her/his step count data from HealthKit.
+**Source Code**: https://github.com/RADAR-base/RADAR-Questionnaire
 
-**Source Code**: https://github.com/RADAR-base/radar-prmt-ios/tree/feature-hk-step-count
 <br><br><br>
-**Goals:**
-| Goals | Related Issues | Requirements |
-|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Develop an iOS pRMT app | - | - Develop an iOS version of the pRMT app by integrating with `HealthKit`.<br> - Develop and integrate the app to `App Config` to receive notifications for collecting the data from HealthKit and send it to RADAR-base server.
 
-**Required Skills:** Swift
+**Goals:**
+
+| Goals                                | Related Issues | Requirements                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Integrate Apple HelthKit to aRMT app | -              | - Integrate HealthKit cordova plugin and enable the read permission to access the HealthKit data<br> - Send collected HealthKit data to RADAR-base server in the foreground on the scheduled time. |
+
+**Required Skills:** Javascipt, Typescript, Angular, Ionic
 
 **Complexity:** Full time
 
