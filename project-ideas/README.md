@@ -115,7 +115,9 @@ supporting all types of common IoT input-output protocols, being open-source, mo
 and providing integration to a well established open-source mHealth cloud platform for data collection, aggregation, 
 transformation and heavyweight analytics with different types of data sources like wearables, IoT sensors, mobile apps, eCRFs.
 
-The framework is currently in the Proof-Of-Concept (POC) stage and has been tested working in a staging environment. 
+**Current Status:**
+The framework is currently in the Proof-Of-Concept (POC) stage and has been tested working in a staging environment. There are various integrations including [GrovePi](https://www.dexterindustries.com/grovepi/) and the array of [sensors](https://github.com/RADAR-base/RADAR-IoT/wiki/Supported-Sensors) compatible with it. For more information take a look at the [wiki](https://github.com/RADAR-base/RADAR-IoT/wiki).
+
 We want to finalise the framework and make it production-ready. 
 This will involve working on core aspects of the framework like sensor states machines, M2M communication protocols and 
 implementing advanced visibility into the framework.
