@@ -10,7 +10,7 @@
 
 **Mentors**: nivemaham, blootvoets
 
-**Background:** The Management Portal is a component built by the RADAR-base community to manage remote monitoring studies of participants/patients. It helps to manage studies, participants, data-sources and handles authentication and authorization of entities with the help of role based access control.
+**Background:** The [Management Portal](https://github.com/RADAR-base/ManagementPortal) is a component built by the RADAR-base community to manage remote monitoring studies of participants/patients. It helps to manage studies, participants, data-sources and handles authentication and authorization of entities with the help of role based access control.
 
 **Overview**: At the moment archival of organisation and project entities are not easy or possible in Management portal.
 
@@ -44,7 +44,7 @@
 
 **Mentors**: nivemaham, mpgxvii
 
-**Overview**: The platform uses Grafana to visualise the data coming from the devices and apps. A TimescaleDB Kafka connector delivers both active and passive data from the Kafka topics to a TimescaleDB database. Data from the database is then used to visualise data completeness through various dashboards in Grafana. Currently, the dashboards that have been created are specific to the studies running them (with specific devices and requirements). For example, one dashboard is called "Fitbit Weartime", which shows the daily number of hours the participant wore the Fitbit device. However, not all studies may be using the Fitbit device. It would be helpful to generalise the dashboards and allow easy configurations.
+**Overview**: The platform uses [Grafana](https://github.com/RADAR-base/RADAR-Kubernetes/tree/main/etc/radar-grafana/dashboards/allprojects) to visualise the data coming from the devices and apps. A TimescaleDB Kafka connector delivers both active and passive data from the Kafka topics to a TimescaleDB database. Data from the database is then used to visualise data completeness through various dashboards in Grafana. Currently, the dashboards that have been created are specific to the studies running them (with specific devices and requirements). For example, one dashboard is called "Fitbit Weartime", which shows the daily number of hours the participant wore the Fitbit device. However, not all studies may be using the Fitbit device. It would be helpful to generalise the dashboards and allow easy configurations.
 
 **Goal:**
 | Goals | Related Issues | Requirements |
@@ -59,7 +59,7 @@
 
 **Mentors**: nivemaham, mpgxvii
 
-**Background**: The aRMT app (also known as Questionnaire app) is an app used to deliver questionnaires to participants in a study.
+**Background**: The [RADAR-base Active Mobile app](https://github.com/RADAR-base/RADAR-Questionnaire) (also known as Questionnaire app) is an app used to deliver questionnaires to participants in a study. The app takes in schedule protocols from a protocol repository ([RADAR-aRMT-Protocols](https://github.com/RADAR-base/RADAR-aRMT-protocols)) and questionnaires from a questionnaire definitions repository ([RADAR-REDCap-aRMT-Definitions](https://github.com/RADAR-base/RADAR-REDCap-aRMT-Definitions)).
 
 **Overview**: The app takes in a protocol.json file and uses this to generate a questionnaire schedule for the participant based on their enrolment date. The protocol requires a list of offsets which are used to calculate the timings from the enrolment date. For example: {"unit": "hour", "unitsFromZero": [9, 12]} will generate that questionnaire at 9am and 12pm (with the enrolment date as the offset). Currently, these timings and offsets are manually calculated and added to the protocol.json file.
 
@@ -82,7 +82,7 @@ The protocol also contains urls of the questionnaire definitions json files. The
 
 **Mentors**: peyman-mohtashami, blootvoets
 
-**Background**: The RADAR-base Passive Mobile App (pRMT App) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices.
+**Background**: The (RADAR-base Passive Mobile App)[https://github.com/RADAR-base/radar-prmt-android] (pRMT App) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices.
 
 **Overview**: Currently, the platform is able to collect passive data through Android phones. We want to develop and extend the iOS version of pRMT to collect data from HealthKit and send it to RADAR-base server. For this purpose, because in iOS devices we couldn't collect HealthKit data in background, we need a notification mechanism (via App Config) to provide configurations to periodically send notifications to start the app for data collection.
 
