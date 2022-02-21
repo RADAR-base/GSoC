@@ -12,6 +12,9 @@
 
 **Overview:** The [Management Portal](https://github.com/RADAR-base/ManagementPortal) is a component built by the RADAR-base community to manage remote monitoring studies of participants/patients. It helps to manage studies, participants, data-sources and handles authentication and authorization of entities with the help of role based access control.
 
+![Screen Shot 2022-02-21 at 2 55 24 PM](https://user-images.githubusercontent.com/16977973/154979410-6ce6e72d-ab0e-4d0d-8668-65a637a7bd4e.png)
+
+
 **Current Status**: At the moment archival of organisation and project entities are not easy or possible in Management portal.
 
 **Goal:**
