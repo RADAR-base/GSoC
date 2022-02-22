@@ -8,41 +8,32 @@
 
 ### Organization and Project Archival and Export on Management Portal
 
-**Mentors**: nivemaham, blootvoets
+**Overview:** The [Management Portal](https://github.com/RADAR-base/ManagementPortal) is a component built by the RADAR-base community to manage remote monitoring studies of participants/patients. It helps to manage studies, participants, data-sources and handles authentication and authorization of entities with the help of role based access control. We are working on a newer version of Management Portal aka Management Portal 2.0, which includes some improvements and additional features. The backend application is implemented using Spring Boot and the Frontend application using Angular.
 
-**Overview:** The [Management Portal](https://github.com/RADAR-base/ManagementPortal) is a component built by the RADAR-base community to manage remote monitoring studies of participants/patients. It helps to manage studies, participants, data-sources and handles authentication and authorization of entities with the help of role based access control.
+**Dependencies:** [Management Portal 2.0 Release candidate](https://github.com/RADAR-base/ManagementPortal/tree/Mp2.0-rc)
 
-![Screen Shot 2022-02-21 at 2 55 24 PM](https://user-images.githubusercontent.com/16977973/154979410-6ce6e72d-ab0e-4d0d-8668-65a637a7bd4e.png)
-
-
-**Current Status**: At the moment archival of organisation and project entities are not easy or possible in Management portal.
+**Current Status**:  At the moment archival of organisation and project entities are not easy or possible in Management portal. The goal of the project is to first implement a way to archive a project. Secondly, extend this archival to organisation level. 
 
 **Goal:**
 
-| Goals                              | Related Issues | Requirements                                                                                                                                                                                                                                                                |
-| ---------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Management Portal project archival | -              | - The goal is to allow the archival of inactive projects. This will make the project catalogue cleaner and cause less confusion for researchers.<br> - Another goal is to allow exporting of data/metadata from completed projects for analysis and back-tracking purposes. |
+| Goals                               | Description                                                                                                                                                                                                                                                                |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|Understanding of concepts in Management Portal  | Read about the application [here](https://radar-base.org/index.php/2019/02/13/concepts-in-management-portal/).  |
+|Setup and run the application on your localhost  | Check the READE of https://github.com/RADAR-base/ManagementPortal for the steps  |
+|Implement Project archival  | This will include defining the conditions, requirements for project archival and the implementation. |
+|Implement Organization archival   | Archival of the organization will include archival of the projects in the organization.|
+|Implement a PoC for Project export | Explore the best way to export a project and metadata it consists.|
 
-**Required Skills:** Java, Javascript, Angular
 
-**Complexity:** Full time
+**Required Skills:** Java, Spring Boot, Angular, SQL
 
----
-
-### Participant Dashboard
-
-**Mentors**: nivemaham, mpgxvii, blootvoets
-
-**Current Status**: The platform collects active and passive data from the participants which is stored for researchers to access. There are data completeness visualisations which researchers also have access to. Currently the participants are not able to see their own data (apart from third-party dashboards, e.g. Fitbit).
-
-**Goal:** The goal is to develop a web-based & mobile-friendly visualisation tool for both passive and active data. This would complete the loop of collecting data and feeding the processed/aggregated versions of the data back to the participant. (Can also reuse previous developments done for H2O)
-
-**Required Skills:** Javascipt, Typescript, Angular, ChartJS
+**Good to have:** Liquibase, Hibernate
 
 **Complexity:** Full time
 
----
+**Mentors**: [nivemaham](https://github.com/nivemaham), [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)
 
+---
 ### Grafana Plugin Dashboards
 
 **Mentors**: nivemaham, mpgxvii
@@ -52,6 +43,7 @@
 **Current Status**: Currently, the dashboards that have been created are specific to the studies running them (with specific devices and requirements). For example, one dashboard is called "Fitbit Weartime", which shows the daily number of hours the participant wore the Fitbit device. However, not all studies may be using the Fitbit device. It would be helpful to generalise the dashboards and allow easy configurations.
 
 **Goal:**
+
 | Goals | Related Issues | Requirements |
 |---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | General Grafana dashboard configurations | - | - The goal is to create different Grafana dashboard configurations for different data/devices and types of visualisations needed. This would make dashboard setup easier and quicker for different studies. This would also allow easy reuse of configurations across studies.
@@ -99,6 +91,7 @@ The app is in initial state and with it the participant can sign in and collect 
 
 <br><br>
 **Goals:**
+
 | Goals | Related Issues | Requirements |
 |---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Develop an iOS pRMT app | - | - Develop an iOS version of the pRMT app by integrating with `HealthKit`.<br> - Develop and integrate the app to `App Config` to receive notifications for collecting the data from HealthKit and send it to RADAR-base server.
@@ -202,6 +195,20 @@ Apart from the goals above, the following general tasks are expected:
 
 - _Must have:_ Java, REST API
 - _Good-to-have:_ Docker, CI, Microservices, Kafka, Distributed Systems
+
+**Complexity:** Full time
+
+---
+
+### Participant Dashboard
+
+**Mentors**: [nivemaham](https://github.com/nivemaham), [mpgxvii](https://github.com/mpgxvii), [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)
+
+**Current Status**: The platform collects active and passive data from the participants which is stored for researchers to access. There are data completeness visualisations which researchers also have access to. Currently the participants are not able to see their own data (apart from third-party dashboards, e.g. Fitbit).
+
+**Goal:** The goal is to develop a web-based & mobile-friendly visualisation tool for both passive and active data. This would complete the loop of collecting data and feeding the processed/aggregated versions of the data back to the participant. (Can also reuse previous developments done for H2O)
+
+**Required Skills:** Javascipt, Typescript, Angular, ChartJS
 
 **Complexity:** Full time
 
