@@ -56,7 +56,7 @@ Second stage of this project is to apply the same to generate protocols. Live re
 | Publish the questionnaire.json to a backend or to a github repository| Options: App-config-backend or github|
 | Implement Protocol builder | Use the data of stored questionnaires and build protocol.json  |                                                                                                                                        |
 
-**Required Skills:** Javascript, Typescript, React/Angular
+**Required Skills:** Javascript, Typescript, Angular
 
 **Complexity:** Full time
 
@@ -64,9 +64,7 @@ Second stage of this project is to apply the same to generate protocols. Live re
 
 ---
 
-### Apple HealthKit integration to aRMT App
-
-**Mentors**: mpgxvii, peyman-mohtashami, blootvoets
+### 3. Apple HealthKit integration to aRMT App
 
 **Overview**: The [RADAR-base Active Mobile app](https://github.com/RADAR-base/RADAR-Questionnaire) (also known as Questionnaire app) is an active remote monitoring app for collecting Patient Reported Outcomes (PRO) e.g. via questionnaires, active tasks and challenges. Active remote monitoring can be used to analyze cognitive behaviors, mental health and overall well-being of an individual or cohort.
 
@@ -87,9 +85,11 @@ Second stage of this project is to apply the same to generate protocols. Live re
 
 **Complexity:** Full time
 
+**Mentors**: mpgxvii, peyman-mohtashami, blootvoets
+
 ---
 
-### IoT Production-Ready Framework
+### 4. IoT Production-Ready Framework
 
 **Overview:**
 The [RADAR-IoT](https://github.com/RADAR-base/RADAR-IoT) is a lightweight, flexible, configurable and highly extensible framework for IoT devices (like a raspberry pi)
@@ -145,7 +145,7 @@ Apart from the goals above, the following general tasks are expected:
 
 ---
 
-### Fitbit Web API Subscription and Extension
+### 5. Fitbit Web API Subscription and Nutrition API Extension
 
 **Overview:**
 The [RADAR-REST-Connector](https://github.com/RADAR-base/RADAR-REST-Connector) contains a [Kafka Connect source connector](https://docs.confluent.io/home/connect/overview.html) for a general REST API, and one for Fitbit in particular. This allows for pulling the wearable data from Fitbit servers using their [Web API](https://dev.fitbit.com/build/reference/web-api/).
@@ -187,7 +187,7 @@ Apart from the goals above, the following general tasks are expected:
 
 ---
 
-### 2.Grafana Dashboards for visualising the data in realtime
+### 6. Grafana Dashboards for visualising the data in realtime
 
 **Overview**: The platform uses [Grafana](https://grafana.com/) to visualise the data coming from the devices and apps. A TimescaleDB Kafka connector delivers both active and passive data from the Kafka topics to a TimescaleDB database. Data from the database is then used to visualise data completeness through various [dashboards in Grafana](https://github.com/RADAR-base/RADAR-Grafana). 
 
@@ -211,7 +211,7 @@ Apart from the goals above, the following general tasks are expected:
 
 ---
 
-### Participant Dashboard
+### 7. Participant Dashboard
 
 **Mentors**: [nivemaham](https://github.com/nivemaham), [mpgxvii](https://github.com/mpgxvii), [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)
 
