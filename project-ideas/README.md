@@ -6,7 +6,7 @@
 
 ## Project Ideas
 
-### Organization and Project Archival and Export on Management Portal
+### 1. Organization and Project Archival and Export on Management Portal
 
 **Overview:** The [Management Portal](https://github.com/RADAR-base/ManagementPortal) is a component built by the RADAR-base community to manage remote monitoring studies of participants/patients. It helps to manage studies, participants, data-sources and handles authentication and authorization of entities with the help of role based access control. We are working on a newer version of Management Portal aka Management Portal 2.0, which includes some improvements and additional features. The backend application is implemented using Spring Boot and the Frontend application using Angular.
 
@@ -14,7 +14,7 @@
 
 **Current Status**:  At the moment archival of organisation and project entities are not easy or possible in Management portal. The goal of the project is to first implement a way to archive a project. Secondly, extend this archival to organisation level. 
 
-**Goal:**
+**Goals:**
 
 | Goals                               | Description                                                                                                                                                                                                                                                                |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,7 +23,6 @@
 |Implement Project archival  | This will include defining the conditions, requirements for project archival and the implementation. |
 |Implement Organization archival   | Archival of the organization will include archival of the projects in the organization.|
 |Implement a PoC for Project export | Explore the best way to export a project and metadata it consists.|
-
 
 **Required Skills:** Java, Spring Boot, Angular, SQL
 
@@ -34,29 +33,8 @@
 **Mentors**: [nivemaham](https://github.com/nivemaham), [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)
 
 ---
-### Grafana Plugin Dashboards
 
-**Mentors**: nivemaham, mpgxvii
-
-**Overview**: The platform uses [Grafana](https://grafana.com/) to visualise the data coming from the devices and apps. A TimescaleDB Kafka connector delivers both active and passive data from the Kafka topics to a TimescaleDB database. Data from the database is then used to visualise data completeness through various dashboards in Grafana. 
-
-![Screen Shot 2022-02-21 at 3 27 47 PM](https://user-images.githubusercontent.com/16977973/154984871-bce650ce-28ce-40f4-a558-dd60d79ce89d.png)
-
-**Current Status**: Currently, the dashboards that have been created are specific to the studies running them (with specific devices and requirements). The dashboards are added to the [Kubernetes installation](https://github.com/RADAR-base/RADAR-Kubernetes/tree/main/etc/radar-grafana/dashboards/allprojects). For example, one dashboard is called "Fitbit Weartime", which shows the daily number of hours the participant wore the Fitbit device. However, not all studies may be using the Fitbit device. It would be helpful to generalise the dashboards and allow easy configurations.
-
-**Goal:**
-
-| Goals | Related Issues | Requirements |
-|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| General Grafana dashboard configurations | - | - The goal is to create different Grafana dashboard configurations for different data/devices and types of visualisations needed. This would make dashboard setup easier and quicker for different studies. This would also allow easy reuse of configurations across studies.
-
-**Required Skills:** Grafana, TimescaleDB
-
----
-
-### aRMT Protocol Generator and Questionnaire Tester
-
-**Mentors**: nivemaham, mpgxvii
+### 2. aRMT Protocol Generator and Questionnaire Tester
 
 <img src="https://radar-base.org/wp-content/uploads/2018/09/armt-start-scrn2.png" align="left" width="220">
 
@@ -79,28 +57,28 @@ The protocol also contains urls of the questionnaire definitions json files. The
 
 **Complexity:** Full time
 
+**Mentors**: [nivemaham](https://github.com/nivemaham), [blootvoets](https://github.com/blootsvoets), [Pauline Conde](https://github.com/mpgxvii)
+
 ---
 
 ### Apple HealthKit integration to aRMT App
 
 **Mentors**: mpgxvii, peyman-mohtashami, blootvoets
-<img src="https://radar-base.org/wp-content/uploads/2018/09/armt-start-scrn.png" align="left" width="220">
 
 **Overview**: The [RADAR-base Active Mobile app](https://github.com/RADAR-base/RADAR-Questionnaire) (also known as Questionnaire app) is an active remote monitoring app for collecting Patient Reported Outcomes (PRO) e.g. via questionnaires, active tasks and challenges. Active remote monitoring can be used to analyze cognitive behaviors, mental health and overall well-being of an individual or cohort.
-
-(*Screenshot on the left is of the aRMT app)
 
 **Current Status**: Currently, the platform is able to collect active data by questionnaires through Android and iOS phones. We want to develop and extend the iOS version of aRMT to collect data from Apple HealthKit and send it to RADAR-base server. For this purpose, because in iOS devices we couldn't collect HealthKit data in background, we need to collect data actively by notifying the participant via notifications to start collecting and sending the data. 
 
 **Source Code**: https://github.com/RADAR-base/RADAR-Questionnaire
 
-<br><br><br>
-
 **Goals:**
 
-| Goals                                | Related Issues | Requirements                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Integrate Apple HelthKit to aRMT app | -              | - Integrate HealthKit cordova plugin and enable the read permission to access the HealthKit data<br> - Send collected HealthKit data to RADAR-base server in the foreground on the scheduled time. |
+| Goals                                | Requirements                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Investigate the ionic health and health-kit plugins | Compare [https://ionicframework.com/docs/native/health-kit](ttps://ionicframework.com/docs/native/health-kit) and [https://ionicframework.com/docs/native/health](https://ionicframework.com/docs/native/health) and choose the best one for the usecase|
+| Create schemas to send data from Apple HealthKit | refer to [RADAR-Schemas](https://github.com/RADAR-base/RADAR-Schemas), create corresponding schemas and specification to send data from HealthKit to RADAR-base platform.|
+| Integrate Apple HealthKit to aRMT app |  Integrate HealthKit cordova plugin and enable the read permission to access the HealthKit data |
+| Implement a task or a notification to periodically collect this data |  Send collected HealthKit data to RADAR-base server in the foreground on the scheduled time. |
 
 **Required Skills:** Javascipt, Typescript, Angular, Ionic
 
@@ -203,6 +181,30 @@ Apart from the goals above, the following general tasks are expected:
 - _Good-to-have:_ Docker, CI, Microservices, Kafka, Distributed Systems
 
 **Complexity:** Full time
+
+---
+
+### 2.Grafana Dashboards for visualising the data in realtime
+
+**Overview**: The platform uses [Grafana](https://grafana.com/) to visualise the data coming from the devices and apps. A TimescaleDB Kafka connector delivers both active and passive data from the Kafka topics to a TimescaleDB database. Data from the database is then used to visualise data completeness through various [dashboards in Grafana](https://github.com/RADAR-base/RADAR-Grafana). 
+
+![Screen Shot 2022-02-21 at 3 27 47 PM](https://user-images.githubusercontent.com/16977973/154984871-bce650ce-28ce-40f4-a558-dd60d79ce89d.png)
+
+**Current Status**: Currently, the dashboards that have been created are specific to the studies running them (with specific devices and requirements). These dashboards are added to the [Kubernetes installation](https://github.com/RADAR-base/RADAR-Kubernetes/tree/main/etc/radar-grafana/dashboards/allprojects). For example, one dashboard is called "Fitbit Weartime", which shows the daily number of hours the participant wore the Fitbit device. However, not all studies may be using the Fitbit device. It would be helpful to generalise the dashboards and allow easy configurations.
+
+**Dependencies:** Sample/Mock data will be necessary to create the graphs.
+
+**Goal:**
+
+| Goals | Related Issues | Requirements |
+|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| General Grafana dashboard configurations | - | - The goal is to create different Grafana dashboard configurations for different data/devices and types of visualisations needed. This would make dashboard setup easier and quicker for different studies. This would also allow easy reuse of configurations across studies.
+
+**Required Skills:** Grafana, TimescaleDB
+
+**Good to have:** Go, Kafka, Kafka-connect
+
+**Mentors**: [Pauline Conde](https://github.com/mpgxvii), [Amos Folarin](https://github.com/afolarin)
 
 ---
 
