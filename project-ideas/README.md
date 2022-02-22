@@ -38,9 +38,11 @@
 
 **Mentors**: nivemaham, mpgxvii
 
-**Overview**: The platform uses [Grafana](https://github.com/RADAR-base/RADAR-Kubernetes/tree/main/etc/radar-grafana/dashboards/allprojects) to visualise the data coming from the devices and apps. A TimescaleDB Kafka connector delivers both active and passive data from the Kafka topics to a TimescaleDB database. Data from the database is then used to visualise data completeness through various dashboards in Grafana. 
+**Overview**: The platform uses [Grafana](https://grafana.com/) to visualise the data coming from the devices and apps. A TimescaleDB Kafka connector delivers both active and passive data from the Kafka topics to a TimescaleDB database. Data from the database is then used to visualise data completeness through various dashboards in Grafana. 
 
-**Current Status**: Currently, the dashboards that have been created are specific to the studies running them (with specific devices and requirements). For example, one dashboard is called "Fitbit Weartime", which shows the daily number of hours the participant wore the Fitbit device. However, not all studies may be using the Fitbit device. It would be helpful to generalise the dashboards and allow easy configurations.
+![Screen Shot 2022-02-21 at 3 27 47 PM](https://user-images.githubusercontent.com/16977973/154984871-bce650ce-28ce-40f4-a558-dd60d79ce89d.png)
+
+**Current Status**: Currently, the dashboards that have been created are specific to the studies running them (with specific devices and requirements). The dashboards are added to the [Kubernetes installation](https://github.com/RADAR-base/RADAR-Kubernetes/tree/main/etc/radar-grafana/dashboards/allprojects). For example, one dashboard is called "Fitbit Weartime", which shows the daily number of hours the participant wore the Fitbit device. However, not all studies may be using the Fitbit device. It would be helpful to generalise the dashboards and allow easy configurations.
 
 **Goal:**
 
@@ -56,11 +58,15 @@
 
 **Mentors**: nivemaham, mpgxvii
 
+<img src="https://radar-base.org/wp-content/uploads/2018/09/armt-start-scrn2.png" align="left" width="220">
+
 **Overview**: The [RADAR-base Active Mobile app](https://github.com/RADAR-base/RADAR-Questionnaire) (also known as Questionnaire app) is an app used to deliver questionnaires to participants in a study. The app takes in schedule protocols from a protocol repository ([RADAR-aRMT-Protocols](https://github.com/RADAR-base/RADAR-aRMT-protocols)) and questionnaires from a questionnaire definitions repository ([RADAR-REDCap-aRMT-Definitions](https://github.com/RADAR-base/RADAR-REDCap-aRMT-Definitions)).
 
 **Current Status**: The app takes in a protocol.json file and uses this to generate a questionnaire schedule for the participant based on their enrolment date. The protocol requires a list of offsets which are used to calculate the timings from the enrolment date. For example: {"unit": "hour", "unitsFromZero": [9, 12]} will generate that questionnaire at 9am and 12pm (with the enrolment date as the offset). Currently, these timings and offsets are manually calculated and added to the protocol.json file.
 
 The protocol also contains urls of the questionnaire definitions json files. These files can be automatically generated from Redcap (survey management application) or can be manually written. Currently the files have to be added to the protocols, which then have to be configured with the app, in order to test them.
+
+<br><br><br>
 
 **Goals:**
 
@@ -75,28 +81,28 @@ The protocol also contains urls of the questionnaire definitions json files. The
 
 ---
 
-### pRMT App iOS version (through HealthKit)
+### Apple HealthKit integration to aRMT App
 
-**Mentors**: peyman-mohtashami, blootvoets
+**Mentors**: mpgxvii, peyman-mohtashami, blootvoets
+<img src="https://radar-base.org/wp-content/uploads/2018/09/armt-start-scrn.png" align="left" width="220">
 
-<img align="left" src="https://user-images.githubusercontent.com/16977973/154981116-c95b52e2-acfe-44f0-99f2-cbc799c56a47.png"> 
+**Overview**: The [RADAR-base Active Mobile app](https://github.com/RADAR-base/RADAR-Questionnaire) (also known as Questionnaire app) is an active remote monitoring app for collecting Patient Reported Outcomes (PRO) e.g. via questionnaires, active tasks and challenges. Active remote monitoring can be used to analyze cognitive behaviors, mental health and overall well-being of an individual or cohort.
 
-**Overview**: The [RADAR-base Passive Mobile App](https://github.com/RADAR-base/radar-prmt-android) (pRMT App) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices. (*Screenshot on the left is of the Android pRMT)
+(*Screenshot on the left is of the aRMT app)
 
-**Current Status**: Currently, the platform is able to collect passive data through Android phones. We want to develop and extend the iOS version of pRMT to collect data from HealthKit and send it to RADAR-base server. For this purpose, because in iOS devices we couldn't collect HealthKit data in background, we need a notification mechanism (via App Config) to provide configurations to periodically send notifications to start the app for data collection.
+**Current Status**: Currently, the platform is able to collect active data by questionnaires through Android and iOS phones. We want to develop and extend the iOS version of aRMT to collect data from Apple HealthKit and send it to RADAR-base server. For this purpose, because in iOS devices we couldn't collect HealthKit data in background, we need to collect data actively by notifying the participant via notifications to start collecting and sending the data. 
 
-The app is in initial state and with it the participant can sign in and collect her/his step count data from HealthKit.
+**Source Code**: https://github.com/RADAR-base/RADAR-Questionnaire
 
-**Source Code**: https://github.com/RADAR-base/radar-prmt-ios/tree/feature-hk-step-count
+<br><br><br>
 
-<br><br>
 **Goals:**
 
-| Goals | Related Issues | Requirements |
-|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Develop an iOS pRMT app | - | - Develop an iOS version of the pRMT app by integrating with `HealthKit`.<br> - Develop and integrate the app to `App Config` to receive notifications for collecting the data from HealthKit and send it to RADAR-base server.
+| Goals                                | Related Issues | Requirements                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Integrate Apple HelthKit to aRMT app | -              | - Integrate HealthKit cordova plugin and enable the read permission to access the HealthKit data<br> - Send collected HealthKit data to RADAR-base server in the foreground on the scheduled time. |
 
-**Required Skills:** Swift
+**Required Skills:** Javascipt, Typescript, Angular, Ionic
 
 **Complexity:** Full time
 
