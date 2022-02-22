@@ -209,6 +209,8 @@ Apart from the goals above, the following general tasks are expected:
 
 **Mentors**: [Pauline Conde](https://github.com/mpgxvii), [Amos Folarin](https://github.com/afolarin)
 
+**Complexity:** Half time
+
 ---
 
 ### 7. Participant Dashboard
