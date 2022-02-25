@@ -87,7 +87,7 @@ Second stage of this project is to apply the same to generate protocols. Live re
 
 **Required Skills:** Javascipt, Typescript, Angular, Ionic
 
-**Difficulty:** Medium
+**Difficulty:** Hard
 
 **Expected Size:** 350-hour (Full time)
 
