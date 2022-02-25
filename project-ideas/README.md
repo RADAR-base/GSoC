@@ -28,7 +28,9 @@
 
 **Good to have:** Liquibase, Hibernate
 
-**Complexity:** Full time
+**Difficulty:** Medium
+
+**Expected Size:** 350-hour (Full time)
 
 **Mentors**: [nivemaham](https://github.com/nivemaham), [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)
 
@@ -58,9 +60,11 @@ Second stage of this project is to apply the same to generate protocols. Live re
 
 **Required Skills:** Javascript, Typescript, Angular
 
-**Complexity:** Full time
+**Difficulty:** Medium
 
-**Mentors**: [nivemaham](https://github.com/nivemaham), [blootvoets](https://github.com/blootsvoets), [Pauline Conde](https://github.com/mpgxvii)
+**Expected Size:** 350-hour (Full time)
+
+**Mentors**: [nivemaham](https://github.com/nivemaham), [blootvoets](https://github.com/blootsvoets), [mpgxvii](https://github.com/mpgxvii)
 
 ---
 
@@ -83,9 +87,11 @@ Second stage of this project is to apply the same to generate protocols. Live re
 
 **Required Skills:** Javascipt, Typescript, Angular, Ionic
 
-**Complexity:** Full time
+**Difficulty:** Hard
 
-**Mentors**: mpgxvii, peyman-mohtashami, blootvoets
+**Expected Size:** 350-hour (Full time)
+
+**Mentors**: [peyman-mohtashami](https://github.com/peyman-mohtashami), [blootvoets](https://github.com/blootsvoets), [mpgxvii](https://github.com/mpgxvii)
 
 ---
 
@@ -134,14 +140,16 @@ Apart from the goals above, the following general tasks are expected:
 - Understand the association of classes and modules in the code with the components in the architecture.
 - Build and run the RADAR-IoT framework with Mock Sensor on your local machine.
 
-**Mentors**: [yatharth](https://github.com/yatharthranjan), [heet](https://github.com/Hsankesara)
-
 **Skills:**
 
 - _Must have:_ IoT, Python
 - _Good-to-have:_ Kotlin/Java, Docker, Automation, I/O protocols like GPIO
 
-**Complexity:** Full time
+**Difficulty:** Hard
+
+**Expected Size:** 350-hour (Full time)
+
+**Mentors**: [yatharth](https://github.com/yatharthranjan), [heet](https://github.com/Hsankesara)
 
 ---
 
@@ -176,14 +184,16 @@ Apart from the goals above, the following general tasks are expected:
 - Understand the specification provided by Fitbit Web API and design implementations based on that.
 - Build and run the RADAR-Fitbit-Connector on your local machine.
 
-**Mentors**: [yatharth](https://github.com/yatharthranjan), [joris](https://github.com/blootsvoets), [nivethika](https://github.com/nivemaham)
-
 **Skills:**
 
 - _Must have:_ Java, REST API
 - _Good-to-have:_ Docker, CI, Microservices, Kafka, Distributed Systems
 
-**Complexity:** Full time
+**Difficulty:** Hard
+
+**Expected Size:** 350-hour (Full time)
+
+**Mentors**: [yatharth](https://github.com/yatharthranjan), [joris](https://github.com/blootsvoets), [nivethika](https://github.com/nivemaham)
 
 ---
 
@@ -207,15 +217,15 @@ Apart from the goals above, the following general tasks are expected:
 
 **Good to have:** Go, Kafka, Kafka-connect
 
-**Mentors**: [Pauline Conde](https://github.com/mpgxvii), [Amos Folarin](https://github.com/afolarin)
+**Difficulty:** Easy
 
-**Complexity:** Half time
+**Expected Size:** 175-hour (Half time)
+
+**Mentors**: [mpgxvii](https://github.com/mpgxvii), [afolarin](https://github.com/afolarin)
 
 ---
 
 ### 7. Participant Dashboard
-
-**Mentors**: [nivemaham](https://github.com/nivemaham), [mpgxvii](https://github.com/mpgxvii), [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)
 
 **Current Status**: The platform collects active and passive data from the participants which is stored for researchers to access. There are data completeness visualisations which researchers also have access to. Currently, the participants are not able to see their own data (apart from third-party dashboards, e.g. Fitbit).
 
@@ -223,6 +233,10 @@ Apart from the goals above, the following general tasks are expected:
 
 **Required Skills:** Javascipt, Typescript, Angular, ChartJS
 
-**Complexity:** Full time
+**Difficulty:** Medium
+
+**Expected Size:** 350-hour (Full time)
+
+**Mentors**: [nivemaham](https://github.com/nivemaham), [mpgxvii](https://github.com/mpgxvii), [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)
 
 ---
