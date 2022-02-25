@@ -62,7 +62,7 @@ Second stage of this project is to apply the same to generate protocols. Live re
 
 **Difficulty:** Medium
 
-**Expected Size:** 350-hour
+**Expected Size:** 350-hour (Full time)
 
 **Mentors**: [nivemaham](https://github.com/nivemaham), [blootvoets](https://github.com/blootsvoets), [mpgxvii](https://github.com/mpgxvii)
 
