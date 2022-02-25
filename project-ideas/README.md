@@ -189,7 +189,7 @@ Apart from the goals above, the following general tasks are expected:
 - _Must have:_ Java, REST API
 - _Good-to-have:_ Docker, CI, Microservices, Kafka, Distributed Systems
 
-**Difficulty:** Hard
+**Difficulty:** Medium
 
 **Expected Size:** 350-hour (Full time)
 
