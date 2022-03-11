@@ -240,3 +240,39 @@ Apart from the goals above, the following general tasks are expected:
 **Mentors**: [nivemaham](https://github.com/nivemaham), [mpgxvii](https://github.com/mpgxvii), [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)
 
 ---
+
+### 8. RADAR-Feature pipeline
+
+**Overview:**
+
+There is a rapidly growing interest in utilizing smartphones and wearables to remotely monitor patients with physical and mental disorders, which offers the potential to provide timely and personalized interventions. Yet, standardization, extraction, and exploration of relevant digital phenotypes (features derived from single or multiple remote monitoring data streams) are time- and effort-consuming. The RADAR-base platform offers off-the-shelf open-source capabilities for collecting these types of remote monitoring streams of data. Standardizing the pipeline for feature extraction and cataloguing will greatly facilitate and expedite the discovery of informative features, enabling feature reuse and comparison.
+
+In [RADAR-pipeline](https://github.com/RADAR-base/radar-pipeline), we are working on an open-source feature extraction pipeline which is capable of processing and analysing raw data collected through smartphones and wearables. The applicable sensor modalities, as detailed by the RADAR-base platform schemas, include GPS, Bluetooth, phone and app usage, sleep, step count, heart rate and others.  We have shown through a depression case study the functionality and utility of the pipeline. The presented open-source library will reduce burdens for studies aiming to develop relevant digital biomarkers and encourage and facilitate reproducible research. It also provides a standardized framework for contributing new pipelines with an emphasis on reuse.
+
+![Example of features in radar-pipeline](https://www.ncbi.nlm.nih.gov/pmc/articles/instance/6902121/bin/nihms-1061609-f0001.jpg)
+
+**Current Status:**
+
+The framework is in development stage, and we are open to new and interesting ideas. We have a working module now and we in the process of finalizing the framework and make it production-ready.
+
+**Goals:**
+| Milestones                                         | Description                                                                                                                                             |
+|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Extend the data reader library                     |<br>- Integrate AVRO schemas in the current library for data standardization.<br>- Implement support for large scale data processing library such as Apache Spark  |
+| Make feature processing more customizable          | Integrate parameter processing in features.                                                                                                             |
+| Add feature summarization and visualization module | <br>- Add summarization library, which provides summary statistics of features. <br>- Implement support for open source visualization library                       |
+| Develop module of reporting missing data           | Add a module that would report missing data.                                                                                                            |
+| Add industry-wide used features                    | Implement industry-wide features used for mobility, heart rate, phone-interaction etc                                                                   |
+
+**Skills:**
+
+- _Must have:_  Python
+- _Good-to-have:_ Pandas,  Python Standard Library, Apache Spark, Dask
+
+**Difficulty:** Hard
+
+**Expected Size:** 350-hour (Full time)
+
+**Mentors**: [Heet Sankesara](https://github.com/Hsankesara), [Shaoxiong Sun](https://github.com/rainybear)
+
+---
