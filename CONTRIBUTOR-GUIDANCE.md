@@ -1,6 +1,6 @@
 ## Communicating with the mentors
 
-**We use Slack as the main medium of communications.** Join us on Slack by filling out this [form](https://docs.google.com/forms/d/e/1FAIpQLScKNZ-QonmxNkekDMLLbP-b_IrNHyDRuQValBy1BAsLOjEFpg/viewform) and connect with your potential mentors to discuss your project ideas. Please introduce yourself to the community and indicate that you are interested in participating the GSoC program. You will be guided to the specific channel/mentor(s). 
+**We use Slack as the main medium of communications.** Join us on Slack by filling out this [form](https://docs.google.com/forms/d/e/1FAIpQLScKNZ-QonmxNkekDMLLbP-b_IrNHyDRuQValBy1BAsLOjEFpg/viewform) and connect with your potential mentors to discuss your project ideas. **Please join the public channel gsoc2022-discussions to discuss the project ideas.** Please introduce yourself to the community and indicate that you are interested in participating the GSoC program. You will be guided to the specific channel/mentor(s). 
 
 - English will be the main language of communication.
 
