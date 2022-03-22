@@ -276,3 +276,32 @@ The framework is in development stage, and we are open to new and interesting id
 **Mentors**: [Heet Sankesara](https://github.com/Hsankesara), [Shaoxiong Sun](https://github.com/rainybear)
 
 ---
+
+### 9. pRMT plugins with data from Google Sleep API and Google Activity recognition API
+
+**Overview**: The [RADAR-base Passive Mobile App (pRMT)](https://github.com/RADAR-base/radar-prmt-android) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices. This application depends on plugins to collect information. New wearable devices can readily be connected to the passive app as plugins using a vendor SDK. In this project we want to extend pRMT support for [Google Sleep API](https://developers.google.com/location-context/sleep) data and [Google Activity recognition](https://developers.google.com/location-context/activity-recognition) data as separate plugins.
+
+The Sleep API, a library powered by Google Play services allows apps to determine when the user goes to sleep and wakes up. The Sleep plugin should subscribe and get the updates via Google Sleep API.
+
+The Activity Recognition API automatically detects activities by periodically reading short bursts of sensor data and processing them using machine learning models.
+
+**Current Status**: Currently, project-supported plugins are listed in the plugins directory of [radar-commons-android]().
+
+**Source Code**: https://github.com/RADAR-base/radar-prmt-android and https://github.com/RADAR-base/radar-commons-android
+
+**Goals:**
+
+| Milestones                                                                                                                        | Description                                                                                                                                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Create schemas to send data from Google Sleep API.                                                                                | Refer to [RADAR-Schemas](https://github.com/RADAR-base/RADAR-Schemas), create corresponding schemas and specification to send data from Google Sleep API to RADAR-base platform.                |
+| [Create a new plugin](https://github.com/RADAR-base/radar-commons-android#creating-a-plugin) for Google Sleep API.                | Retrieve any detected sleep start/end times and send data to RADAR-base server. The APIs require min Android 10. A minSdkVersion and compileSdkVersion of 29 or higher.                                                           |
+| Create schemas to send data from Google Activity Recognition API.                                                                 | Refer to [RADAR-Schemas](https://github.com/RADAR-base/RADAR-Schemas), create corresponding schemas and specification to send data from Google Activity Recognition API to RADAR-base platform. |
+| [Create a new plugin](https://github.com/RADAR-base/radar-commons-android#creating-a-plugin) for Google Activity Recognition API. | Retrieve any activity updates and detected activities and send data to RADAR-base server.                                                                                                       |
+
+**Required Skills:** Kotlin, Java
+
+**Difficulty:** Hard
+
+**Expected Size:** 350-hour (Full time)
+
+**Mentors**: [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)
