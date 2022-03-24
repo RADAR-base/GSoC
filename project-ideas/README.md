@@ -225,23 +225,7 @@ Apart from the goals above, the following general tasks are expected:
 
 ---
 
-### 7. Participant Dashboard
-
-**Current Status**: The platform collects active and passive data from the participants which is stored for researchers to access. There are data completeness visualisations which researchers also have access to. Currently, the participants are not able to see their own data (apart from third-party dashboards, e.g. Fitbit).
-
-**Goal:** The goal is to develop a web-based & mobile-friendly visualisation tool for both passive and active data. This would complete the loop of collecting data and feeding the processed/aggregated versions of the data back to the participant.
-
-**Required Skills:** Javascipt, Typescript, Angular, ChartJS
-
-**Difficulty:** Medium
-
-**Expected Size:** 350-hour (Full time)
-
-**Mentors**: [nivemaham](https://github.com/nivemaham), [mpgxvii](https://github.com/mpgxvii), [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)
-
----
-
-### 8. RADAR-Feature pipeline
+### 7. RADAR-Feature pipeline
 
 **Overview:**
 
@@ -277,7 +261,7 @@ The framework is in development stage, and we are open to new and interesting id
 
 ---
 
-### 9. pRMT plugins with data from Google Sleep API and Google Activity recognition API
+### 8. pRMT plugins with data from Google Sleep API and Google Activity recognition API
 
 **Overview**: The [RADAR-base Passive Mobile App (pRMT)](https://github.com/RADAR-base/radar-prmt-android) is the hub for collecting background sensor data and provides data streams from both on-phone sensors and the capability to collect data from a number of wearable devices. This application depends on plugins to collect information. New wearable devices can readily be connected to the passive app as plugins using a vendor SDK. In this project we want to extend pRMT support for [Google Sleep API](https://developers.google.com/location-context/sleep) data and [Google Activity recognition](https://developers.google.com/location-context/activity-recognition) data as separate plugins.
 
