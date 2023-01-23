@@ -7,7 +7,7 @@
 
 ## Project Ideas
 
-A list of **project ideas** can be found [here](https://github.com/RADAR-base/GSoC/tree/main/project-ideas). For questions or discussions, please contact us through Slack.
+A list of **2023 project ideas** can be found [here](https://github.com/RADAR-base/GSoC/tree/main/project-ideas_2023). For questions or discussions, please contact us through Slack.
 
 ## How to apply
 
