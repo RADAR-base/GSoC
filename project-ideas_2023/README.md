@@ -249,8 +249,7 @@ The Activity Recognition API automatically detects activities by periodically re
 
 ### 7. Real Time Data Analysis Model Builder
 
-**Overview**: The [model-builder](https://github.com/RADAR-base/model-builder) is a real time machine learning training, prediction and invocation module. It provides flexible infrastructure to add custom machine learning and deep learning models using any of the deep learning platforms. The model-builder reads data from data streams and used them to predict in real time. The prediction then can be sent back to the streams.
-
+**Overview**: The [model-builder](https://github.com/RADAR-base/model-builder) is a real time machine learning training, prediction and invocation module. It provides flexible infrastructure to add custom machine learning and deep learning models using any of the deep learning platforms. The model-builder reads data from the data streams and used them to predict in real time. The prediction then can be sent back to the streams.
 
 **Current Status**: We ran the pilot study using the model-builder and was able to predict the outcomes in real time. The platform is still in development stage and would require some major refactoring to make it more flexible and easily deployable.
 
@@ -262,8 +261,7 @@ The Activity Recognition API automatically detects activities by periodically re
 |----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Kubernetes Integration         | Intergrating model-builder stack with the [Radar-Kubernetes](https://github.com/radar-base/radar-kubernetes/)                                                           |
 | Mlflow server Integration                  |  <br>- Adding UDF Integration in KSQL servers              <br>-  Adding retention of models in the mlflow server                                                             |
-| Mlflow client | <br>- Adding scheduling module for training               |
-|Mlflow invocation        | <br>-  Adding invocation module on the kubernetes stack as well.                                                                                                            |
+| Mlflow client | Adding scheduling module for training               |
 
 **Required Skills:** Python
 

@@ -1,4 +1,4 @@
-# RADAR-Base Google Summer of Code (GSoC) 2022
+# RADAR-Base Google Summer of Code (GSoC) 2023
 <img src="https://radar-base.org/wp-content/uploads/2018/03/Logo_RADAR-Base-RGB.png" width="250">
 
 **RADAR-base (Remote Assessment of Disease And Relapses)** is an open source platform for remote patient monitoring. The main focus of RADAR-base is seamless integration of data streams from various wearables and mobile applications to collect patient generated data in real time and store, manage and share the collected data with researchers for retrospective analysis.
