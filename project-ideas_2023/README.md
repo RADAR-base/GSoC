@@ -197,7 +197,7 @@ The framework is in development stage, and we are open to new and interesting id
 **Goals:**
 | Milestones                                         | Description                                                                                                                                             |
 |----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Extend the data reader library                     |<br>- Integrate AVRO schemas in the current library for data standardization.<br>- Implement support for large scale data processing library such as Apache Spark  |
+| Extend the data reader library                     |<br>- Extend data reading from remote server <br>- Add funtionality to read files in various formats such as Avro, json etc |
 | Make feature processing more customizable          | Integrate parameter processing in features.                                                                                                             |
 | Add feature summarization and visualization module | <br>- Add summarization library, which provides summary statistics of features. <br>- Implement support for open source visualization library                       |
 | Develop module of reporting missing data           | Add a module that would report missing data.                                                                                                            |
@@ -247,20 +247,28 @@ The Activity Recognition API automatically detects activities by periodically re
 
 ---
 
-### 6. Real Time Data Analysis Model Builder
+### 7. Real Time Data Analysis Model Builder
 
-**Overview**: TODO
+**Overview**: The [model-builder](https://github.com/RADAR-base/model-builder) is a real time machine learning training, prediction and invocation module. It provides flexible infrastructure to add custom machine learning and deep learning models using any of the deep learning platforms. The model-builder reads data from data streams and used them to predict in real time. The prediction then can be sent back to the streams.
 
-**Current Status**: TODO.
+
+**Current Status**: We ran the pilot study using the model-builder and was able to predict the outcomes in real time. The platform is still in development stage and would require some major refactoring to make it more flexible and easily deployable.
 
 **Source Code**: https://github.com/RADAR-base/model-builder
 
 **Goals:**
 
-**Required Skills:** Kotlin, Java
+| Milestones                                         | Description                                                                                                                                             |
+|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Kubernetes Integration         | Intergrating model-builder stack with the [Radar-Kubernetes](https://github.com/radar-base/radar-kubernetes/)                                                           |
+| Mlflow server Integration                  |  <br>- Adding UDF Integration in KSQL servers              <br>-  Adding retention of models in the mlflow server                                                             |
+| Mlflow client | <br>- Adding scheduling module for training               |
+|Mlflow invocation        | <br>-  Adding invocation module on the kubernetes stack as well.                                                                                                            |
 
-**Difficulty:** Hard
+**Required Skills:** Python
+
+**Difficulty:** Medium
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**: [Heet Sankesara](https://github.com/Hsankesara) ****TBD***
+**Mentors**: [heet](https://github.com/Hsankesara), [yatharth](https://github.com/yatharthranjan)
