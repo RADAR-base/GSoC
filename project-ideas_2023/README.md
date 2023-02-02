@@ -15,7 +15,7 @@
 ### 1A. aRMT Questionnaire Generator
 
 **Goals:** 
-The goal of this project is to implement a UI which can be used to generate the questionnaire definition JSON file based on user input and store this generated JSON file to be used by the app. The app should be able to adapt the input type user has chosen and render a sample question that would appear on the app (See wireframe below). We should be able to reuse the components created as part of the questionnaire app to build the live rendering. Questionnaire creation should also support branching logic which is supported by the app.
+The goal of this project is to implement a UI which can be used to generate the questionnaire definition JSON file ([See example](https://github.com/RADAR-base/RADAR-REDCap-aRMT-Definitions/blob/master/questionnaires/phq8/phq8_armt.json)) based on user input and store this generated JSON file to be used by the app. The app should be able to adapt the input type user has chosen and render a sample question that would appear on the app (See wireframe below). We should be able to reuse the components created as part of the questionnaire app to build the live rendering. Questionnaire creation should also support branching logic which is supported by the app. See example input types [here](https://radar-base.atlassian.net/wiki/spaces/RAD/pages/38043668/Active+Questionnaire+App#ActiveQuestionnaireApp-Questionnaires%26Tasks).
 
 **Sample Wireframe:** ![Wireframe](wireframe.png)
 
@@ -28,7 +28,7 @@ The goal of this project is to implement a UI which can be used to generate the 
 ### 1B. aRMT Protocol Generator and Schedule Viewer
 
 **Goals:** 
-The goal of this project is to implement a UI which can be used to generate the protocol definition JSON file based on user requirements (what questionnaires to be delivered and when). Optionally, if time permits this can be further extend to validate the protocol by generating schedule used on the enrolment-time of a participant. The RADAR Appserver has some existing scheduling functionality that can be extended to generate sample schedules.
+The goal of this project is to implement a UI which can be used to generate the protocol definition JSON file ([See example and docs here](https://radar-base.atlassian.net/wiki/spaces/RAD/pages/463241217/Protocol+Schedule)) based on user requirements (what questionnaires to be delivered and when). Optionally, if time permits this can be further extend to validate the protocol by generating schedule used on the enrolment-time of a participant. The RADAR Appserver has some existing scheduling functionality that can be extended to generate sample schedules.
 
 
 
