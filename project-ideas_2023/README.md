@@ -254,7 +254,9 @@ The Activity Recognition API automatically detects activities by periodically re
 **Current Status**: We ran the pilot study using the model-builder and was able to predict the outcomes in real time. The platform is still in development stage and would require some major refactoring to make it more flexible and easily deployable.
 **Architecture**
 
-![Real time architecture](./real_time_architecture.jpeg)
+<p align="center">
+  <img src="./real_time_architecture.jpeg">
+</p>
 
 **Source Code**: https://github.com/RADAR-base/model-builder
 
