@@ -1,4 +1,4 @@
-# RADAR-Base Google Summer of Code (GSoC) 2022
+# RADAR-Base Google Summer of Code (GSoC) 2023
 
 <img src="https://radar-base.org/wp-content/uploads/2018/03/Logo_RADAR-Base-RGB.png" width="250">
 
@@ -243,7 +243,7 @@ The Activity Recognition API automatically detects activities by periodically re
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**: [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)    ****TBD***
+**Mentors**: [zulqarnain](https://github.com/zulqarnain343), [blootvoets](https://github.com/blootsvoets), [peyman-mohtashami](https://github.com/peyman-mohtashami)
 
 ---
 
