@@ -27,7 +27,7 @@ The goal of this project is to implement a UI which can be used to generate the 
 
 ### 1B. aRMT Protocol Generator and Schedule Viewer
 
-**Goals:** 
+**Goals:**
 The goal of this project is to implement a UI which can be used to generate the protocol definition JSON file ([See example and docs here](https://radar-base.atlassian.net/wiki/spaces/RAD/pages/463241217/Protocol+Schedule)) based on user requirements (what questionnaires to be delivered and when). Optionally, if time permits this can be further extend to validate the protocol by generating schedule used on the enrolment-time of a participant. The RADAR Appserver has some existing scheduling functionality that can be extended to generate sample schedules.
 
 
@@ -168,7 +168,7 @@ Apart from the goals above, the following general tasks are expected:
 |---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | General Grafana dashboard configurations | - | - The goal is to create different Grafana dashboard configurations for different data/devices and types of visualisations needed. This would make dashboard setup easier and quicker for different studies. This would also allow easy reuse of configurations across studies.
 
-**Required Skills:** Grafana, TimescaleDB
+**Required Skills:** Grafana, SQL
 
 **Good to have:** Go, Kafka, Kafka-connect
 
@@ -200,8 +200,8 @@ The framework is in development stage, and we are open to new and interesting id
 | Extend the data reader library                     |<br>- Extend data reading from remote server <br>- Add funtionality to read files in various formats such as Avro, json etc |
 | Make feature processing more customizable          | Integrate parameter processing in features.                                                                                                             |
 | Add feature summarization and visualization module | <br>- Add summarization library, which provides summary statistics of features. <br>- Implement support for open source visualization library                       |
-| Develop module of reporting missing data           | Add a module that would report missing data.                                                                                                            |
-| Add industry-wide used features                    | Implement industry-wide features used for mobility, heart rate, phone-interaction etc                                                                   |
+| Develop module of reporting missing data (***Optional***)          | Add a module that would report missing data.                                                                                                            |
+| Add industry-wide used features (***Optional***)                      | Implement industry-wide features used for mobility, heart rate, phone-interaction etc                                                                   |
 
 **Skills:**
 
@@ -252,6 +252,9 @@ The Activity Recognition API automatically detects activities by periodically re
 **Overview**: The [model-builder](https://github.com/RADAR-base/model-builder) is a real time machine learning training, prediction and invocation module. It provides flexible infrastructure to add custom machine learning and deep learning models using any of the deep learning platforms. The model-builder reads data from the data streams and used them to predict in real time. The prediction then can be sent back to the streams.
 
 **Current Status**: We ran the pilot study using the model-builder and was able to predict the outcomes in real time. The platform is still in development stage and would require some major refactoring to make it more flexible and easily deployable.
+**Architecture**
+
+![Real time architecture](./real_time_architecture.jpeg)
 
 **Source Code**: https://github.com/RADAR-base/model-builder
 
@@ -259,7 +262,6 @@ The Activity Recognition API automatically detects activities by periodically re
 
 | Milestones                                         | Description                                                                                                                                             |
 |----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Kubernetes Integration         | Intergrating model-builder stack with the [Radar-Kubernetes](https://github.com/radar-base/radar-kubernetes/)                                                           |
 | Mlflow server Integration                  |  <br>- Adding UDF Integration in KSQL servers              <br>-  Adding retention of models in the mlflow server                                                             |
 | Mlflow client | Adding scheduling module for training               |
 
