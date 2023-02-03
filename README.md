@@ -1,4 +1,4 @@
-# RADAR-Base Google Summer of Code (GSoC) 2022
+# RADAR-Base Google Summer of Code (GSoC) 2023
 <img src="https://radar-base.org/wp-content/uploads/2018/03/Logo_RADAR-Base-RGB.png" width="250">
 
 **RADAR-base (Remote Assessment of Disease And Relapses)** is an open source platform for remote patient monitoring. The main focus of RADAR-base is seamless integration of data streams from various wearables and mobile applications to collect patient generated data in real time and store, manage and share the collected data with researchers for retrospective analysis.
@@ -7,7 +7,7 @@
 
 ## Project Ideas
 
-A list of **project ideas** can be found [here](https://github.com/RADAR-base/GSoC/tree/main/project-ideas). For questions or discussions, please contact us through Slack.
+A list of **2023 project ideas** can be found [here](https://github.com/RADAR-base/GSoC/tree/main/project-ideas_2023). For questions or discussions, please contact us through Slack.
 
 ## How to apply
 
