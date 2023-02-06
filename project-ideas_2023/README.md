@@ -45,7 +45,7 @@ The goal of this project is to implement a UI which can be used to generate the 
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**:  [mpgxvii](https://github.com/mpgxvii), [yatharth](https://github.com/yatharthranjan)
+**Mentors**:  [mpgxvii](https://github.com/mpgxvii), [yatharth](https://github.com/yatharthranjan), [Amos](https://github.com/afolarin)
 
 ---
 
@@ -273,4 +273,4 @@ The Activity Recognition API automatically detects activities by periodically re
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**: [heet](https://github.com/Hsankesara), [yatharth](https://github.com/yatharthranjan)
+**Mentors**: [heet](https://github.com/Hsankesara), [yatharth](https://github.com/yatharthranjan), [Amos](https://github.com/afolarin)
