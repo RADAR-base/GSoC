@@ -212,7 +212,7 @@ The framework is in development stage, and we are open to new and interesting id
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**: [Pushkar Patel](https://github.com/thepushkarp), [Heet Sankesara](https://github.com/Hsankesara), [Amos Folarin](https://github.com/afolarin), [Shaoxiong Sun](https://github.com/rainybear)
+**Mentors**: [Pushkar Patel](https://github.com/thepushkarp), [Heet Sankesara](https://github.com/Hsankesara), [Amos Folarin](https://github.com/afolarin), [Shaoxiong Sun](https://github.com/rainybear), [Akash](https://github.com/arch1909)
 
 ---
 
