@@ -7,7 +7,7 @@
 
 ## Project Ideas
 
-A list of **2023 project ideas** can be found [here](https://github.com/RADAR-base/GSoC/tree/main/project-ideas_2023). For questions or discussions, please contact us through Slack.
+The latest list of **project ideas** can be found [here](https://github.com/RADAR-base/GSoC/tree/main/project-ideas_2023). For questions or discussions, please contact us through Slack. **UPDATE RADAR-base is not in GSoC 2023, however if you are interested in any of the projects feel free to get in touch.
 
 ## How to apply
 
