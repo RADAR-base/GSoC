@@ -1,4 +1,6 @@
-# RADAR-Base Google Summer of Code (GSoC) 2023
+# RADAR-Base Google Summer of Code (GSoC) ~~2023~~
+
+Unfortunately RADAR-base wasn't selected to take part in GSoC 2023, if you are interested in getting involved with the project please get in touch with us (on Slack, or email see https://radar-base.org).
 
 <img src="https://radar-base.org/wp-content/uploads/2018/03/Logo_RADAR-Base-RGB.png" width="250">
 
