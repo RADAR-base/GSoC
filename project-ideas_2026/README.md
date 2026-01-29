@@ -6,27 +6,45 @@
 
 ## Project Ideas
 
-### 1. Dexcomm integration
+### 1. Dexcomm Continuous Glucose Monitoring (CGM) integration
 
-**Overview**: This project focuses on integrating Dexcomm continuous glucose monitoring data into the RADAR-base ecosystem so that it can be used alongside other wearable and mobile data streams for research and monitoring. 
-TBD: Add info on the repos
+**Overview**: This project focuses on integrating Dexcomm continuous glucose monitoring data into the RADAR-base ecosystem so that it can be used alongside other wearable and mobile data streams for research and monitoring. The [Dexcom API](https://developer.dexcom.com/docs/) is RESTful and utilizes OAuth 2.0 for authentication, allowing secure authorization of Dexcom CGM data for use in third-party applications.
+
+This work is expected to touch multiple RADAR-base repositories, typically:
+
+- [RADAR-REST-Connector](https://github.com/RADAR-base/RADAR-REST-Connector) (implementing a new REST connector module / routes / converters for the Dexcom API). See oura or fitbit work in this repo for prior similar integrations
+- [radar-rest-source-auth](https://github.com/RADAR-base/radar-rest-source-auth) (handling OAuth 2.0 authentication and authorization flows for Dexcom API access). See oura or fitbit work in this repo for prior similar integrations
+- [RADAR-Schemas](https://github.com/RADAR-base/RADAR-Schemas) (adding/aligning Avro schemas for Dexcom data streams)
+- (Optional) [RADAR-Kubernetes](https://github.com/RADAR-base/RADAR-Kubernetes) (deploying the connector and wiring it into the platform stack) 
 
 **Goals:**
+The goal is to deliver a production-ready ingestion path for Dexcomm CGM data, following the patterns used for other wearable integrations (e.g. Fitbit, Oura). This integration will enable RADAR-base studies to remotely monitor continuous glucose levels alongside other health metrics, providing researchers with comprehensive multi-modal data streams for longitudinal health monitoring and intervention studies.
 
-TBD: Add specific goals and what we aim to achieve with this work. Link to Oura work.
-TBD: add a simple wokrflow diagram
+By integrating Dexcomm CGM data, RADAR-base studies can track glucose patterns in real-time, correlate glucose levels with other sensor data (activity, sleep, heart rate), and support research into diabetes management, metabolic health, and personalized interventions. This is particularly valuable for studies focusing on chronic disease management, behavioral interventions, and digital therapeutics.
+
+**Workflow (high-level):**
+
+```mermaid
+flowchart LR
+  A[Participant Dexcomm account/device] --> B[Dexcom Cloud / Web API]
+  B -->|OAuth 2.0| C[radar-rest-source-auth OAuth 2.0 Authorization]
+  C -->|Authenticated requests| D[Dexcom Connector   RADAR-REST-Connector]
+  D --> E[Kafka Topics]
+  E --> F[Downstream: Connectors / DB / Feature pipeline]
+  F --> G[Dashboards / Research analysis]
+```
 
 | Milestones                                      | Description                                                                                       |
 |-----------------------------------------------|---------------------------------------------------------------------------------------------------|
-| Design Dexcomm ingestion architecture         | Define how Dexcomm data will be acquired, normalised, and routed into existing RADAR pipelines.  |
-| Implement connector / integration component   | Implement and configure the connector, schemas, and mapping to RADAR-base topics.                |
+| Publish Dexcom Schemas        | Define and publish schemas for the required Dexcomm data types (e.g., estimated glucose values (EGVs), calibrations, alerts, events, device information) following RADAR-base schema conventions.   |
+| Implement connector and auth component   | Implement a Dexcomm connector that integrates with the [radar-rest-source-auth](https://github.com/RADAR-base/radar-rest-source-auth) module for OAuth 2.0 authentication, fetches data reliably from the [Dexcom API](https://developer.dexcom.com/docs/), and publishes to Kafka with correct timestamps and deduplication.                |
 | Validation, security and documentation        | Validate data quality, ensure appropriate security/consent flows, and document the integration.  |
 
-**Required Skills:** TBD (likely Java/Kotlin, REST/OAuth, data modelling)
+**Required Skills:** Java/Kotlin, REST APIs, OAuth2.0
 
-**Difficulty:** TBD
+**Difficulty:** Medium
 
-**Expected Size:** TBD
+**Expected Size:** 350-hour (Full time)
 
 **Mentors**: @yatharth, @pauline, @aditya
 
@@ -49,9 +67,9 @@ TBD: add architecture diagram (include any managed services)
 | Implement IaC modules for GCP/GKE             | Add Terraform/Helm/Kubernetes manifests (or similar) for deploying RADAR-base components on GKE.            |
 | CI/CD and documentation                       | Add automated deployment/testing workflows and user-facing documentation for GCP/GKE deployments.           |
 
-**Required Skills:** TBD (likely Terraform, Kubernetes, GCP)
+**Required Skills:** Terraform, Kubernetes, GCP, Infrastructure-as-Code
 
-**Difficulty:** TBD
+**Difficulty:** Medium
 
 **Expected Size:** TBD
 
@@ -79,11 +97,11 @@ TBD: add architecture diagram
 | Real-time sensor simulator                     | Build a sensor simulator for reinforcement learning and framework testing, driven by existing datasets and scenarios.      |
 | Adverse-event simulation                       | Implement triggers for adverse events (e.g. heart rate, depression-related metrics) as part of the simulator.             |
 
-**Required Skills:** TBD (likely Python/Scala, streaming frameworks, ML/MLops)
+**Required Skills:** Python, streaming frameworks (Kafka/KSQL), ML, MLOps, Apache Airflow
 
-**Difficulty:** TBD
+**Difficulty:** Hard
 
-**Expected Size:** TBD
+**Expected Size:** 350-hour (Full time)
 
 **Mentors**: @Heet, @afolarin
 
@@ -106,11 +124,11 @@ TBD: add architecture diagram
 | AI-based and dynamic UI features               | Explore and implement AI-assisted features (e.g. smart filters, recommendations) and dynamic UI configuration.     |
 | Integration with existing RADAR services       | Integrate the new backend components with existing RADAR-base auth, data, and configuration services.              |
 
-**Required Skills:** TBD (likely Java/Kotlin, REST APIs, data modelling)
+**Required Skills:** Java/Kotlin, REST APIs, React, JS/TS, backend architecture
 
-**Difficulty:** TBD
+**Difficulty:** Medium-Hard
 
-**Expected Size:** TBD
+**Expected Size:** 350-hour (Full time)
 
 **Mentors**: @pauline, @Callum, @yatharth
 
@@ -134,11 +152,11 @@ TBD: add any screenshots and things we would like to improve
 | Implementation and migration         | Implement the new site (framework/CMS TBD) and migrate existing content.                    |
 | Performance, accessibility, SEO      | Optimise the site for performance, accessibility, and discoverability.                      |
 
-**Required Skills:** TBD (likely modern web frontend framework, UX/design)
+**Required Skills:** Modern web frontend framework, UX/design, content management
 
-**Difficulty:** TBD
+**Difficulty:** Medium
 
-**Expected Size:** TBD
+**Expected Size:** 175-hour (Half time)
 
 **Mentors**: @Wally, @Giada, @Omar, @afolarin
 
@@ -162,11 +180,11 @@ TBD: add workflow diagram  (if any)
 | Implement benchmarking workflows     | Implement reproducible benchmarking workflows and reporting for the agreed scope.               |
 | Documentation and reproducibility    | Document how to run, extend, and interpret Benchmarking Rings results.                          |
 
-**Required Skills:** TBD
+**Required Skills:** data analysis, benchmarking methodologies, statistical analysis
 
-**Difficulty:** TBD
+**Difficulty:** Medium-Hard
 
-**Expected Size:** TBD
+**Expected Size:** 350-hour (Full time)
 
 **Mentors**: TBD
 
@@ -189,11 +207,11 @@ TBD: add any screenshots and things we would like to improve, including any wire
 | Design proposals and prototypes            | Propose, prototype, and validate UX and interaction improvements with users/researchers where possible.     |
 | Implement top improvements                 | Implement the highest-impact UX and performance improvements in the chosen frontend app.                     |
 
-**Required Skills:** TBD (likely web/mobile frontend, UX research)
+**Required Skills:** Web/mobile frontend (React/Angular/Flutter), UX research, performance optimization
 
-**Difficulty:** TBD
+**Difficulty:** Medium
 
-**Expected Size:** TBD
+**Expected Size:** 175-hour (Half time)
 
 **Mentors**: @wally, @giada, @pauline
 
@@ -216,9 +234,9 @@ TBD: Add specific goals and what we aim to achieve with this work.
 | Firebase events error log analysis                | Extend existing Firebase/BigQuery analysis tools (e.g. Pauline’s webapp) for better error and event analysis.               |
 | LLM-assisted analysis (e.g. Google AI Studio)     | Explore LLM-based workflows (e.g. via Google AI Studio) for triaging logs and errors and suggesting fixes.                  |
 
-**Required Skills:** TBD (likely scripting, observability/monitoring stacks, cloud tooling)
+**Required Skills:** Scripting (Python/Bash), observability/monitoring stacks, cloud tooling, load testing frameworks
 
-**Difficulty:** TBD
+**Difficulty:** Medium
 
 **Expected Size:** TBD
 
@@ -244,10 +262,10 @@ TBD: add arch diagram (if any)
 | WearOS app development                    | Implement the custom WearOS app for data collection and secure transmission.                                 |
 | Integration and validation                | Integrate with RADAR-base ingestion, validate data quality, and harden for real-world study deployments.     |
 
-**Required Skills:** TBD (likely Kotlin/Java, WearOS, Android)
+**Required Skills:** Kotlin/Java, WearOS, Android development, mobile sensor APIs
 
-**Difficulty:** TBD
+**Difficulty:** Medium-Hard
 
-**Expected Size:** TBD
+**Expected Size:** 350-hour (Full time)
 
 **Mentors**: @Callum, @afolarin, Maxime Sasseville
