@@ -98,7 +98,11 @@ The last leg of the project is to develop sensor data simulation to generate var
 
 #### Just in time intervention architecture
 
-![Airflow Architecture](https://docs.google.com/drawings/d/e/2PACX-1vRFoXLS5zKhosYTjzFOb9ivlnrnwPnBoliy9-AFSKfVsUAMXJGU5aMfZO0Vi6dz05Sr2yXV2-9PwUIe/pub?w=1218&h=825)
+![Airflow Architecture](https://docs.google.com/drawings/d/e/2PACX-1vRFoXLS5zKhosYTjzFOb9ivlnrnwPnBoliy9-AFSKfVsUAMXJGU5aMfZO0Vi6dz05Sr2yXV2-9PwUIe/pub?w=1218&h=825)\\
+
+#### High-level DAG from config architecture
+
+![DAG from config](./airflow_dynamic_diagram.png)
 
 | Milestones                                        | Description                                                                                                           |
 | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
