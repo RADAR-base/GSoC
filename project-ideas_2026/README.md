@@ -15,7 +15,7 @@ This work is expected to touch multiple RADAR-base repositories, typically:
 - [RADAR-REST-Connector](https://github.com/RADAR-base/RADAR-REST-Connector) (implementing a new REST connector module / routes / converters for the Dexcom API). See oura or fitbit work in this repo for prior similar integrations
 - [radar-rest-source-auth](https://github.com/RADAR-base/radar-rest-source-auth) (handling OAuth 2.0 authentication and authorization flows for Dexcom API access). See oura or fitbit work in this repo for prior similar integrations
 - [RADAR-Schemas](https://github.com/RADAR-base/RADAR-Schemas) (adding/aligning Avro schemas for Dexcom data streams)
-- (Optional) [RADAR-Kubernetes](https://github.com/RADAR-base/RADAR-Kubernetes) (deploying the connector and wiring it into the platform stack) 
+- (Optional) [RADAR-Kubernetes](https://github.com/RADAR-base/RADAR-Kubernetes) (deploying the connector and wiring it into the platform stack)
 
 **Goals:**
 The goal is to deliver a production-ready ingestion path for Dexcomm CGM data, following the patterns used for other wearable integrations (e.g. Fitbit, Oura). This integration will enable RADAR-base studies to remotely monitor continuous glucose levels alongside other health metrics, providing researchers with comprehensive multi-modal data streams for longitudinal health monitoring and intervention studies.
@@ -34,11 +34,11 @@ flowchart LR
   F --> G[Dashboards / Research analysis]
 ```
 
-| Milestones                                      | Description                                                                                       |
-|-----------------------------------------------|---------------------------------------------------------------------------------------------------|
-| Publish Dexcom Schemas        | Define and publish schemas for the required Dexcomm data types (e.g., estimated glucose values (EGVs), calibrations, alerts, events, device information) following RADAR-base schema conventions.   |
-| Implement connector and auth component   | Implement a Dexcomm connector that integrates with the [radar-rest-source-auth](https://github.com/RADAR-base/radar-rest-source-auth) module for OAuth 2.0 authentication, fetches data reliably from the [Dexcom API](https://developer.dexcom.com/docs/), and publishes to Kafka with correct timestamps and deduplication.                |
-| Validation, security and documentation        | Validate data quality, ensure appropriate security/consent flows, and document the integration.  |
+| Milestones                             | Description                                                                                                                                                                                                                                                                                                            |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Publish Dexcom Schemas                 | Define and publish schemas for the required Dexcomm data types (e.g., estimated glucose values (EGVs), calibrations, alerts, events, device information) following RADAR-base schema conventions.                                                                                                                      |
+| Implement connector and auth component | Implement a Dexcomm connector that integrates with the[radar-rest-source-auth](https://github.com/RADAR-base/radar-rest-source-auth) module for OAuth 2.0 authentication, fetches data reliably from the [Dexcom API](https://developer.dexcom.com/docs/), and publishes to Kafka with correct timestamps and deduplication. |
+| Validation, security and documentation | Validate data quality, ensure appropriate security/consent flows, and document the integration.                                                                                                                                                                                                                        |
 
 **Required Skills:** Java/Kotlin, REST APIs, OAuth2.0
 
@@ -61,11 +61,11 @@ TBD: Add info on the repos
 TBD: Add specific goals and what we aim to achieve with this work. Link to Azure PR work.
 TBD: add architecture diagram (include any managed services)
 
-| Milestones                                    | Description                                                                                                  |
-|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| GCP/GKE architecture and environment design   | Define target architecture, networking, security, and required managed services on GCP/GKE.                 |
-| Implement IaC modules for GCP/GKE             | Add Terraform/Helm/Kubernetes manifests (or similar) for deploying RADAR-base components on GKE.            |
-| CI/CD and documentation                       | Add automated deployment/testing workflows and user-facing documentation for GCP/GKE deployments.           |
+| Milestones                                  | Description                                                                                       |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| GCP/GKE architecture and environment design | Define target architecture, networking, security, and required managed services on GCP/GKE.       |
+| Implement IaC modules for GCP/GKE           | Add Terraform/Helm/Kubernetes manifests (or similar) for deploying RADAR-base components on GKE.  |
+| CI/CD and documentation                     | Add automated deployment/testing workflows and user-facing documentation for GCP/GKE deployments. |
 
 **Required Skills:** Terraform, Kubernetes, GCP, Infrastructure-as-Code
 
@@ -79,23 +79,34 @@ TBD: add architecture diagram (include any managed services)
 
 ### 3. New real-time machine learning, inference and interventions pipeline
 
-**Overview**: The new real-time pipeline will support configurable DAGs, model training on non-identifiable/synthetic data, and advanced ML/foundation-model use cases, plus realistic sensor simulation for experimentation and reinforcement learning.
+**Overview**: 
 
-TBD: Add info on the repos
+RADAR-base is an open-source platform to leverage data from wearable devices and mobile technologies. It provides scalable and customisable capabilities for streaming and processing real-time data remote data from various wearables and apps. The next natural step for this platform is develop a platform that can utilise this data to conduct context based interventions. These interventions can range from single conditional logic to utilising a foundation model to do predictions. In this project, we aim to build a config-driven and scalable just in time intervention platform that can dynamically build and run interventions based on configs.
+
+This new just-in-time intervention pipeline will support configurable DAGs, model training and inference on non-identifiable/synthetic data, and advanced ML/foundation-model use cases, plus realistic sensor simulation for experimentation and reinforcement learning. The more detail about the just in time intervention architecture could be found in this [RFC](https://github.com/RADAR-base/rfcs/blob/jitai/rfcs/platform/0002-just-in-time-intervention-platform.md)
+
+This work is expected to be centred around the [RADAR-Airflow dynamic config repo](https://github.com/RADAR-base/radar-airflow-dynamic-config)  where the applicant will contribute to the python library to read the config files and convert it into DAGs which can be executed in Airflow.
 
 **Goals:**
 
-TBD: Add specific goals and what we aim to achieve with this work. Link to existing realtime work and the RFC.
-TBD: add architecture diagram
+The goal of this project is to implement an extendible dynamic DAG generator module that can convert config files into executable DAGs. The module would support tasks such as detecting missing data, training a machine learning model, running inference in real time and other custom applications.
+
+Once this is achieved, the next aim would be to integrate remotely training AI models. We have previously implemented a prototype to do that in model-builder project. The aim is to expand the architecture to facilitate training and fine tuning of different machine learning models. Moreover, we’ll work on deploying the Nvidia Triton server to run inference on the trained machine learning models to conduct context based personalised interventions in real time.
+
+The last leg of the project is to develop sensor data simulation to generate various wearable data (HR, respiration rate etc) alongside various scenarios such as missing data, spike in heart rate, Atrial fibrillation etc to test latency and efficiency of the intervention system.
 
 
-| Milestones                                      | Description                                                                                                                |
-|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| DAG from configuration                         | Design and implement a configuration-driven DAG definition and execution layer for the real-time pipeline.                |
+#### Just in time intervention architecture
+
+![Airflow Architecture](https://docs.google.com/drawings/d/e/2PACX-1vRFoXLS5zKhosYTjzFOb9ivlnrnwPnBoliy9-AFSKfVsUAMXJGU5aMfZO0Vi6dz05Sr2yXV2-9PwUIe/pub?w=1218&h=825)
+
+| Milestones                                        | Description                                                                                                           |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| DAG from configuration                            | Design and implement a configuration-driven DAG definition and execution layer for the real-time pipeline.            |
 | Model training on non-identifiable/synthetic data | Enable model training using synthetic or anonymised data (e.g. engagement metrics) to preserve privacy.               |
-| ML / Foundation model support                  | Add support for integrating ML or foundation models (e.g. for prediction, anomaly detection, or feature extraction).      |
-| Real-time sensor simulator                     | Build a sensor simulator for reinforcement learning and framework testing, driven by existing datasets and scenarios.      |
-| Adverse-event simulation                       | Implement triggers for adverse events (e.g. heart rate, depression-related metrics) as part of the simulator.             |
+| ML / Foundation model support                     | Add support for integrating ML or foundation models (e.g. for prediction, anomaly detection, or feature extraction).  |
+| Real-time sensor simulator                        | Build a sensor simulator for reinforcement learning and framework testing, driven by existing datasets and scenarios. |
+| Adverse-event simulation                          | Implement triggers for adverse events (e.g. heart rate, depression-related metrics) as part of the simulator.         |
 
 **Required Skills:** Python, streaming frameworks (Kafka/KSQL), ML, MLOps, Apache Airflow
 
@@ -103,7 +114,7 @@ TBD: add architecture diagram
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**: @Heet, @afolarin
+**Mentors**: @Hsankesara, @afolarin
 
 ---
 
@@ -116,13 +127,13 @@ TBD: Add info on the repos
 **Goals:**
 
 TBD: Add specific goals and what we aim to achieve with this work. Link to exisitng old APIs (MP, rest-sources, etc)
-TBD: add architecture diagram 
+TBD: add architecture diagram
 
-| Milestones                                      | Description                                                                                                        |
-|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| Dashboard / widget framework                   | Design and implement a backend API for configurable dashboards and widget-based layouts.                           |
-| AI-based and dynamic UI features               | Explore and implement AI-assisted features (e.g. smart filters, recommendations) and dynamic UI configuration.     |
-| Integration with existing RADAR services       | Integrate the new backend components with existing RADAR-base auth, data, and configuration services.              |
+| Milestones                               | Description                                                                                                    |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Dashboard / widget framework             | Design and implement a backend API for configurable dashboards and widget-based layouts.                       |
+| AI-based and dynamic UI features         | Explore and implement AI-assisted features (e.g. smart filters, recommendations) and dynamic UI configuration. |
+| Integration with existing RADAR services | Integrate the new backend components with existing RADAR-base auth, data, and configuration services.          |
 
 **Required Skills:** Java/Kotlin, REST APIs, React, JS/TS, backend architecture
 
@@ -143,14 +154,13 @@ TBD: Add info on the repos/link to existing work (mention wordpress)
 **Goals:**
 
 TBD: Add specific goals and what we aim to achieve with this work.
-TBD: add any screenshots and things we would like to improve 
+TBD: add any screenshots and things we would like to improve
 
-
-| Milestones                           | Description                                                                                 |
-|--------------------------------------|---------------------------------------------------------------------------------------------|
-| Design and information architecture  | Refresh the visual design and content structure to better communicate RADAR-base’s value.   |
-| Implementation and migration         | Implement the new site (framework/CMS TBD) and migrate existing content.                    |
-| Performance, accessibility, SEO      | Optimise the site for performance, accessibility, and discoverability.                      |
+| Milestones                          | Description                                                                                |
+| ----------------------------------- | ------------------------------------------------------------------------------------------ |
+| Design and information architecture | Refresh the visual design and content structure to better communicate RADAR-base’s value. |
+| Implementation and migration        | Implement the new site (framework/CMS TBD) and migrate existing content.                   |
+| Performance, accessibility, SEO     | Optimise the site for performance, accessibility, and discoverability.                     |
 
 **Required Skills:** Modern web frontend framework, UX/design, content management
 
@@ -173,12 +183,11 @@ TBD: Add info on the protocols
 TBD: Add specific goals and what we aim to achieve with this work. Link to analysis methods
 TBD: add workflow diagram  (if any)
 
-
-| Milestones                           | Description                                                                                      |
-|--------------------------------------|--------------------------------------------------------------------------------------------------|
-| Define benchmarking scope and tasks  | Collaborate with stakeholders (including ZR) to define targets, metrics, and datasets.          |
-| Implement benchmarking workflows     | Implement reproducible benchmarking workflows and reporting for the agreed scope.               |
-| Documentation and reproducibility    | Document how to run, extend, and interpret Benchmarking Rings results.                          |
+| Milestones                          | Description                                                                            |
+| ----------------------------------- | -------------------------------------------------------------------------------------- |
+| Define benchmarking scope and tasks | Collaborate with stakeholders (including ZR) to define targets, metrics, and datasets. |
+| Implement benchmarking workflows    | Implement reproducible benchmarking workflows and reporting for the agreed scope.      |
+| Documentation and reproducibility   | Document how to run, extend, and interpret Benchmarking Rings results.                 |
 
 **Required Skills:** data analysis, benchmarking methodologies, statistical analysis
 
@@ -201,11 +210,11 @@ TBD: Add info on the repos/link to existing work
 TBD: Add specific goals and what we aim to achieve with this work.
 TBD: add any screenshots and things we would like to improve, including any wireframes. Mention the planned plugin architecture
 
-| Milestones                                 | Description                                                                                                  |
-|--------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| UX and performance research                | Analyse usage, performance, and engagement data to identify key UX and performance pain points.             |
-| Design proposals and prototypes            | Propose, prototype, and validate UX and interaction improvements with users/researchers where possible.     |
-| Implement top improvements                 | Implement the highest-impact UX and performance improvements in the chosen frontend app.                     |
+| Milestones                      | Description                                                                                             |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| UX and performance research     | Analyse usage, performance, and engagement data to identify key UX and performance pain points.         |
+| Design proposals and prototypes | Propose, prototype, and validate UX and interaction improvements with users/researchers where possible. |
+| Implement top improvements      | Implement the highest-impact UX and performance improvements in the chosen frontend app.                |
 
 **Required Skills:** Web/mobile frontend (React/Angular/Flutter), UX research, performance optimization
 
@@ -227,12 +236,12 @@ TBD: Add info on the repos/link to existing work (gatling tests, pauline's LLM-a
 
 TBD: Add specific goals and what we aim to achieve with this work.
 
-| Milestones                                        | Description                                                                                                                  |
-|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Load testing for core services                    | Design and run automated load tests for gateway, Hydra, and Kratos, integrating them into CI/CD where possible.             |
-| Observation tooling and log scanning              | Build or integrate tools for log scanning and observation to detect anomalies and regressions.                              |
-| Firebase events error log analysis                | Extend existing Firebase/BigQuery analysis tools (e.g. Pauline’s webapp) for better error and event analysis.               |
-| LLM-assisted analysis (e.g. Google AI Studio)     | Explore LLM-based workflows (e.g. via Google AI Studio) for triaging logs and errors and suggesting fixes.                  |
+| Milestones                                    | Description                                                                                                     |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Load testing for core services                | Design and run automated load tests for gateway, Hydra, and Kratos, integrating them into CI/CD where possible. |
+| Observation tooling and log scanning          | Build or integrate tools for log scanning and observation to detect anomalies and regressions.                  |
+| Firebase events error log analysis            | Extend existing Firebase/BigQuery analysis tools (e.g. Pauline’s webapp) for better error and event analysis.  |
+| LLM-assisted analysis (e.g. Google AI Studio) | Explore LLM-based workflows (e.g. via Google AI Studio) for triaging logs and errors and suggesting fixes.      |
 
 **Required Skills:** Scripting (Python/Bash), observability/monitoring stacks, cloud tooling, load testing frameworks
 
@@ -248,7 +257,6 @@ TBD: Add specific goals and what we aim to achieve with this work.
 
 **Overview**: Develop a custom WearOS application for Pixel Watch 4 to collect relevant sensor data and integrate it into RADAR-base, enabling richer multi-device data collection.
 
-
 TBD: Add info on the protocols
 
 **Goals:**
@@ -256,11 +264,11 @@ TBD: Add info on the protocols
 TBD: Add specific goals and what we aim to achieve with this work. Link to wearOS docs.
 TBD: add arch diagram (if any)
 
-| Milestones                                | Description                                                                                                   |
-|-------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| Requirements and data mapping             | Define which Pixel Watch 4 data streams will be collected and how they map to RADAR-base schemas.            |
-| WearOS app development                    | Implement the custom WearOS app for data collection and secure transmission.                                 |
-| Integration and validation                | Integrate with RADAR-base ingestion, validate data quality, and harden for real-world study deployments.     |
+| Milestones                    | Description                                                                                              |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Requirements and data mapping | Define which Pixel Watch 4 data streams will be collected and how they map to RADAR-base schemas.        |
+| WearOS app development        | Implement the custom WearOS app for data collection and secure transmission.                             |
+| Integration and validation    | Integrate with RADAR-base ingestion, validate data quality, and harden for real-world study deployments. |
 
 **Required Skills:** Kotlin/Java, WearOS, Android development, mobile sensor APIs
 
