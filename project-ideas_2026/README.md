@@ -107,26 +107,37 @@ TBD: add architecture diagram
 
 ---
 
-### 4. Improved backend for Researcher management portal
+### 4. Researcher Portal Dashboards with AI-Assisted Features
 
-**Overview**: The Researcher backend will power flexible, interactive tools for researchers, including dashboard and widget-based interfaces with AI-assisted and dynamic UI features.
+**Overview**: This project will enhance the RADAR-base Researcher Portal by developing configurable, widget-based dashboards with AI-assisted features to support efficient data exploration and management.
 
-TBD: Add info on the repos
+RADAR-base is an open-source platform for collecting, managing, and analyzing multimodal data for health research. While existing APIs provide access to study data, researchers currently have limited support for interactive dashboards and intelligent UI assistance tailored to different data sources and study needs.
+
+The project will focus on building a dashboard and widget framework using a Next.js frontend and a Kotlin-based backend, integrated with existing RADAR-base APIs (e.g. Management Portal and REST-based data sources). In addition, AI-assisted UI features will be introduced to help researchers configure dashboards, apply filters, and explore data more effectively, while prioritizing usability and maintainability.
 
 **Goals:**
 
-TBD: Add specific goals and what we aim to achieve with this work. Link to exisitng old APIs (MP, rest-sources, etc)
-TBD: add architecture diagram 
+By the end of the project, the student will:
 
-| Milestones                                      | Description                                                                                                        |
-|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| Dashboard / widget framework                   | Design and implement a backend API for configurable dashboards and widget-based layouts.                           |
-| AI-based and dynamic UI features               | Explore and implement AI-assisted features (e.g. smart filters, recommendations) and dynamic UI configuration.     |
-| Integration with existing RADAR services       | Integrate the new backend components with existing RADAR-base auth, data, and configuration services.              |
+- Design and implement a backend API to support configurable dashboards and widget-based layouts.
+- Develop a Next.js-based frontend that allows researchers to create, arrange, and manage dashboard widgets via a drag-and-drop interface.
+- Support dashboards tailored to different data sources (e.g. Fitbit, Garmin, aRMT) and metrics (e.g. heart rate, steps, questionnaires) using existing RADAR-base APIs.
+- Implement AI-assisted features to:
+  - Suggest relevant widgets or metrics based on selected data sources.
+  - Provide smart default filters or views for common research tasks.
+- Document the dashboard framework, APIs, and AI-assisted features.
 
-**Required Skills:** Java/Kotlin, REST APIs, React, JS/TS, backend architecture
+| Milestones             | Description                                                                                                          |
+|------------------------|----------------------------------------------------------------------------------------------------------------------|
+| Requirements & design  | Identify user workflows, supported data sources, AI-assisted use cases, and produce a simple architecture design.   |
+| Backend API            | Implement Kotlin-based APIs for dashboard configuration, storage, and data access.                                  |
+| Dashboard frontend     | Develop a widget-based dashboard UI in Next.js with drag-and-drop support.                                          |
+| AI-assisted features   | Implement assistive features such as widget suggestions or smart defaults integrated into the UI.                   |
+| Integration & handover | Integrate with existing RADAR-base APIs and write developer and user documentation.                                 |
 
-**Difficulty:** Medium-Hard
+**Required Skills:** Frontend development (React / Next.js), backend development (Kotlin), REST APIs. Familiarity with basic AI/ML concepts or LLM APIs is beneficial but not required.
+
+**Difficulty:** Medium–Hard
 
 **Expected Size:** 350-hour (Full time)
 
@@ -217,7 +228,7 @@ TBD: add any screenshots and things we would like to improve, including any wire
 
 ---
 
-### 8. Automation and Load Testing for RADAR-base
+### 8. Automation and Load Testing 
 
 **Overview**: This project will improve performance and reliability testing in the RADAR-base platform by introducing automated load testing and basic anomaly detection for core backend services.
 
