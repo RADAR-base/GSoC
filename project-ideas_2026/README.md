@@ -79,21 +79,21 @@ TBD: add architecture diagram (include any managed services)
 
 ### 3. New real-time machine learning, inference and interventions pipeline
 
-**Overview**: 
+**Overview**:
 
-RADAR-base is an open-source platform to leverage data from wearable devices and mobile technologies. It provides scalable and customisable capabilities for streaming and processing real-time data remote data from various wearables and apps. The next natural step for this platform is develop a platform that can utilise this data to conduct context based interventions. These interventions can range from single conditional logic to utilising a foundation model to do predictions. In this project, we aim to build a config-driven and scalable just in time intervention platform that can dynamically build and run interventions based on configs.
+RADAR-base is an open-source platform to leverage data from wearable devices and mobile technologies. It provides scalable and customisable capabilities for streaming and processing real-time data remote data from various wearables and apps. The next step for this platform is develop a platform that can utilise this data to execute context based interventions. These interventions can range from single conditional logic to utilising a foundation model to do predictions. In this project, we aim to build a config-driven, easily customisable and scalable just in time intervention platform that can dynamically build and run interventions.
 
-This new just-in-time intervention pipeline will support configurable DAGs, model training and inference on non-identifiable/synthetic data, and advanced ML/foundation-model use cases, plus realistic sensor simulation for experimentation and reinforcement learning. The more detail about the just in time intervention architecture could be found in this [RFC](https://github.com/RADAR-base/rfcs/blob/jitai/rfcs/platform/0002-just-in-time-intervention-platform.md)
+This new just-in-time intervention platform will support configurable DAGs, model training and inference on non-identifiable/synthetic data, and advanced ML/foundation-model use cases, plus realistic sensor simulation for experimentation and reinforcement learning. The more detail about the just in time intervention architecture could be found in this [RFC](https://github.com/RADAR-base/rfcs/blob/jitai/rfcs/platform/0002-just-in-time-intervention-platform.md)
 
-This work is expected to be centred around the [RADAR-Airflow dynamic config repo](https://github.com/RADAR-base/radar-airflow-dynamic-config)  where the applicant will contribute to the python library to read the config files and convert it into DAGs which can be executed in Airflow.
+This work is expected to be centred around the [RADAR-Airflow dynamic config repo](https://github.com/RADAR-base/radar-airflow-dynamic-config) where the applicant will contribute to the python library to read the config files and convert it into DAGs which can be executed in Airflow.
 
 **Goals:**
 
 The goal of this project is to implement an extendible dynamic DAG generator module that can convert config files into executable DAGs. The module would support tasks such as detecting missing data, training a machine learning model, running inference in real time and other custom applications.
 
-Once this is achieved, the next aim would be to integrate remotely training AI models. We have previously implemented a prototype to do that in model-builder project. The aim is to expand the architecture to facilitate training and fine tuning of different machine learning models. Moreover, we’ll work on deploying the Nvidia Triton server to run inference on the trained machine learning models to conduct context based personalised interventions in real time.
+Once this is achieved, the next aim would be to integrate remotely training AI models. We have previously implemented a prototype to do that in model-builder project. The aim is to expand the architecture to facilitate training and fine tuning of machine learning models. Moreover, we’ll work on deploying the Nvidia Triton server to run inference on the trained machine learning models to conduct context based personalised interventions in real time.
 
-The last leg of the project is to develop sensor data simulation to generate various wearable data (HR, respiration rate etc) alongside various scenarios such as missing data, spike in heart rate, Atrial fibrillation etc to test latency and efficiency of the intervention system.
+The last leg of the project is to develop a sensor data simulation to generate various wearable data (HR, respiration rate etc) alongside various scenarios such as missing data, spike in heart rate, Atrial fibrillation etc to test latency and efficiency of the intervention system.
 
 #### Just in time intervention architecture
 
@@ -105,7 +105,7 @@ The last leg of the project is to develop sensor data simulation to generate var
 
 | Milestones                                        | Description                                                                                                           |
 | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| DAG from configuration                            | Design and implement a configuration-driven DAG definition and execution layer for the real-time pipeline.            |
+| DAG from configuration                            | Implement a configuration-driven DAG definition and execution layer for the real-time pipeline.            |
 | Model training on non-identifiable/synthetic data | Enable model training using synthetic or anonymised data (e.g. engagement metrics) to preserve privacy.               |
 | ML / Foundation model support                     | Add support for integrating ML or foundation models (e.g. for prediction, anomaly detection, or feature extraction).  |
 | Real-time sensor simulator                        | Build a sensor simulator for reinforcement learning and framework testing, driven by existing datasets and scenarios. |
@@ -117,7 +117,7 @@ The last leg of the project is to develop sensor data simulation to generate var
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**: @Hsankesara, @afolarin
+**Mentors**: [@Hsankesara](https://github.com/hsankesara/), [@afolarin](https://github.com/afolarin)
 
 ---
 
