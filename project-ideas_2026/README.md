@@ -80,7 +80,7 @@ By the end of the project, the student will:
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**: @Callum, @afolarin, Maxime Sasseville
+**Mentors**: [Callum](https://github.com/callumstew), [Amos](https://github.com/afolarin), Maxime Sasseville
 
 ---
 
@@ -136,7 +136,7 @@ Medium
 175 hours (Half-time)
 
 **Mentors:**
-@GiadaBrianza @ec18130 @afolarin 
+[Giada](https://github.com/GiadaBrianza), [Wally](https://github.com/ec18130), [Amos](https://github.com/afolarin)
 
 ---
 
@@ -180,7 +180,7 @@ The last leg of the project is to develop a sensor data simulation to generate v
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**: [@Hsankesara](https://github.com/hsankesara/), [@afolarin](https://github.com/afolarin)
+**Mentors**: [Heet](https://github.com/hsankesara/), [Amos](https://github.com/afolarin)
 
 ---
 
@@ -224,7 +224,7 @@ flowchart LR
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**: @yatharth, @pauline, @aditya
+**Mentors**: [yatharth](https://github.com/yatharthranjan), [pauline](https://github.com/mpgxvii), [aditya](https://github.com/this-Aditya)
 
 ---
 
@@ -262,10 +262,9 @@ By the end of the project, the student will:
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**: @pauline, @Callum, @yatharth
+**Mentors**: [pauline](https://github.com/mpgxvii), [Callum](https://github.com/callumstew), [yatharth](https://github.com/yatharthranjan)
 
 ---
-
 
 ### 6. Support for GCP/GKE in the infrastructure-as-code template
 
@@ -306,7 +305,7 @@ The goal is to deliver production-ready infrastructure-as-code for deploying RAD
 
 **Expected Size:** 175-hour (Half time)
 
-**Mentors**: @xibai, @Mani Thumu, @yatharth
+**Mentors**: [Xi](https://github.com/baixiac), [Mani](https://github.com/mani-thumu), [yatharth](https://github.com/yatharthranjan)
 
 ---
 
@@ -355,7 +354,7 @@ By the end of the project, the student will:
 
 **Expected Size:** 350-hour (Full time)
 
-**Mentors**: @pauline, @xibai, @Mani Thumu
+**Mentors**: [pauline](https://github.com/mpgxvii), [Xi](https://github.com/baixiac), [Mani](https://github.com/mani-thumu)
 
 ---
 
