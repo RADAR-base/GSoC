@@ -246,21 +246,71 @@ TBD: Add specific goals and what we aim to achieve with this work.
 
 ### 9. Pixel Watch 4 data extraction and integration (custom WearOS application)
 
-**Overview**: Develop a custom WearOS application for Pixel Watch 4 to collect relevant sensor data and integrate it into RADAR-base, enabling richer multi-device data collection.
+**Overview**: This project will develop a custom WearOS application for Google Pixel Watch devices to enable continuous data collection through the RADAR-base platform for mobile health research.
 
 
-TBD: Add info on the protocols
+RADAR-base is an open-source platform for collecting, managing, and analyzing multimodal data from mobile and wearable devices in health research studies. While RADAR-base currently supports multiple smartphone- and wearable-based data sources, support for WearOS-based smartwatches, particularly Pixel Watch devices, is limited.
+
+Pixel Watches provide access to high-quality physiological and motion sensors (e.g. accelerometer, gyroscope, heart rate, electrodermal activity) which are highly relevant for longitudinal health monitoring. Additionally, WearOS is an attractive development platform for delivering customised smartwatch study apps and allows comprehensive access to sensor APIs.
+
+The project will interact with several existing open-source RADAR-base components, including the Passive RMT App (https://github.com/RADAR-base/radar-prmt-android) and the Kafka Schema repository (https://github.com/RADAR-base/RADAR-Schemas).
+
+
+```mermaid
+---
+config:
+  flowchart:
+    subGraphTitleMargin:
+      bottom: 24
+      top: 12
+---
+flowchart LR
+  subgraph WearOS["Pixel Watch (WearOS)"]
+    SENS["Sensors<br/>(accel/gyro/HR/etc)"] --> COLLECT["Data Collection Service"]
+    COLLECT --> BUF["Local Buffer<br/>(SQLite/Room)"]
+    BUF --> SYNC["Sync Client<br/>(Wearable Data Layer)"]
+  end
+
+  subgraph Phone["RADAR Passive App (Android)"]
+    DL["Data Layer Receiver"] --> Q["Cache<br/>(persistent)"]
+    Q --> UP["Uploader<br/>(HTTP client)"]
+  end
+
+  subgraph Radar["RADAR-base Platform"]
+    API["RADAR-Gateway (REST API)"] --> ING["Kafka"]
+    ING
+  end
+
+  SYNC --> DL
+  UP --> API
+```
 
 **Goals:**
 
-TBD: Add specific goals and what we aim to achieve with this work. Link to wearOS docs.
-TBD: add arch diagram (if any)
+By the end of the project, the student will:
 
-| Milestones                                | Description                                                                                                   |
-|-------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| Requirements and data mapping             | Define which Pixel Watch 4 data streams will be collected and how they map to RADAR-base schemas.            |
-| WearOS app development                    | Implement the custom WearOS app for data collection and secure transmission.                                 |
-| Integration and validation                | Integrate with RADAR-base ingestion, validate data quality, and harden for real-world study deployments.     |
+1. Design and implement a custom WearOS application capable of collecting raw and derived sensor data from Pixel Watch devices.
+
+2. Define and document data mappings between WearOS sensor outputs and existing RADAR-base data schemas.
+
+3. Implement secure, reliable data transmission into RADAR-base, either:
+  - directly from the watch via HTTP APIs, or
+
+  - indirectly via a companion Android phone application acting as a relay.
+
+4. Validate data quality, robustness, and suitability for real-world research deployments.
+
+5. (Optional/Stretch) Implement basic “active task” functionality on the watch (e.g. short surveys, timed exercises, or simple interventions) to support interactive study protocols.
+
+
+| Milestones                   | Description                                                                                |
+| --------------------------- | ------------------------------------------------------------------------------------------ |
+| Requirements & data mapping | Identify target Pixel Watch sensors and map outputs to RADAR-base schemas.                 |
+| Architecture & design       | Decide on data transmission architecture and security model; produce design documentation. |
+| WearOS app development      | Implement data collection, buffering, and transmission logic on the watch.                 |
+| Integration & ingestion     | Integrate with RADAR-base APIs and validate end-to-end data flow.                          |
+| Validation & hardening      | Test data quality, battery impact, and robustness for real-world study use.                |
+| Documentation & handover    | Write developer and deployment documentation; optional stretch features.                   |
 
 **Required Skills:** Kotlin/Java, WearOS, Android development, mobile sensor APIs
 
@@ -269,3 +319,4 @@ TBD: add arch diagram (if any)
 **Expected Size:** 350-hour (Full time)
 
 **Mentors**: @Callum, @afolarin, Maxime Sasseville
+
