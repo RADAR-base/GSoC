@@ -109,33 +109,75 @@ TBD: add architecture diagram
 
 ### 4. Researcher Portal Dashboards with AI-Assisted Features
 
-**Overview**: This project will enhance the RADAR-base Researcher Portal by developing configurable, widget-based dashboards with AI-assisted features to support efficient data exploration and management.
+**Overview**: This project will extend an existing RADAR-base Researcher Portal frontend (Next.js + TypeScript) that already includes participant-level and cohort-level data views composed of configurable visualization widgets. The goal is to turn these into first-class, configurable dashboards with AI-assisted assistance for configuring views, choosing metrics, and interpreting data.
 
-RADAR-base is an open-source platform for collecting, managing, and analyzing multimodal data for health research. While existing APIs provide access to study data, researchers currently have limited support for interactive dashboards and intelligent UI assistance tailored to different data sources and study needs.
+RADAR-base is an open-source platform for collecting, managing, and analyzing multimodal data for health research (e.g. wearables, mobile apps, questionnaires). The current prototype Researcher Portal integrates with RADAR-base-compatible APIs to fetch metric metadata and timeseries data (e.g. via a metrics catalogue and `/metrics/timeseries` endpoints) and renders them using an ApexCharts-based visualization layer. Researchers can already:
 
-The project will focus on building a dashboard and widget framework using a Next.js frontend and a Kotlin-based backend, integrated with existing RADAR-base APIs (e.g. Management Portal and REST-based data sources). In addition, AI-assisted UI features will be introduced to help researchers configure dashboards, apply filters, and explore data more effectively, while prioritizing usability and maintainability.
+- Switch between participant and cohort views.
+- Add per-widget visualizations that are backed by a shared data service and metric catalogue.
+- Select metrics from devices (e.g. steps, heart rate, sleep, calories) and questionnaires.
+- View data as line, bar, area, or scatter plots (e.g. scatter plots for cohort-wide participant distributions over time).
+- Filter by participant (including mapping internal IDs to Management Portal logins) and date range.
+- Persist basic widget configuration in the browser (via `localStorage`).
+
+However, there is no unified dashboard model, no drag-and-drop layout, and only minimal UI guidance for selecting useful metrics or views.
+
+This GSoC project will build on this existing codebase to deliver a more powerful, reusable dashboard framework and introduce AI-assisted UI features that help researchers configure dashboards, pick appropriate visualizations, and explore data more effectively, while keeping the architecture simple and maintainable.
 
 **Goals:**
 
 By the end of the project, the student will:
 
-- Design and implement a backend API to support configurable dashboards and widget-based layouts.
-- Develop a Next.js-based frontend that allows researchers to create, arrange, and manage dashboard widgets via a drag-and-drop interface.
-- Support dashboards tailored to different data sources (e.g. Fitbit, Garmin, aRMT) and metrics (e.g. heart rate, steps, questionnaires) using existing RADAR-base APIs.
-- Implement AI-assisted features to:
-  - Suggest relevant widgets or metrics based on selected data sources.
-  - Provide smart default filters or views for common research tasks.
-- Document the dashboard framework, APIs, and AI-assisted features.
+- **Generalize and extend the existing widget system**
+  - Build on the current participant and cohort “Data Visualization” widgets to define a dashboard model (e.g. per-study, per-user dashboards with multiple widgets).
+  - Support saving, loading, and sharing dashboard configurations (beyond browser `localStorage`), so that researchers can return to and reuse their preferred layouts.
+  - Unify configuration between participant-level and cohort-level dashboards (e.g. consistent way to select metrics, date ranges, and subjects/cohorts).
 
-| Milestones             | Description                                                                                                          |
-|------------------------|----------------------------------------------------------------------------------------------------------------------|
-| Requirements & design  | Identify user workflows, supported data sources, AI-assisted use cases, and produce a simple architecture design.   |
-| Backend API            | Implement Kotlin-based APIs for dashboard configuration, storage, and data access.                                  |
-| Dashboard frontend     | Develop a widget-based dashboard UI in Next.js with drag-and-drop support.                                          |
-| AI-assisted features   | Implement assistive features such as widget suggestions or smart defaults integrated into the UI.                   |
-| Integration & handover | Integrate with existing RADAR-base APIs and write developer and user documentation.                                 |
+- **Enhance the dashboard frontend and layout**
+  - Implement a widget-based dashboard UI in Next.js where researchers can:
+    - Add/remove widgets using the existing data source + metric selector.
+    - Reorder widgets via a drag-and-drop interface.
+    - Optionally resize or toggle widgets to full-width (building on the current “fill row” behavior in the cohort view).
+  - Reuse and extend the existing ApexCharts-based visualization component to support common research tasks (e.g. time-series trends, cohort distributions, basic comparisons).
 
-**Required Skills:** Frontend development (React / Next.js), backend development (Kotlin), REST APIs. Familiarity with basic AI/ML concepts or LLM APIs is beneficial but not required.
+- **Leverage the existing metrics catalogue and timeseries APIs**
+  - Build on the current `DataService` integration that:
+    - Fetches a metric catalogue (grouped by source: devices vs questionnaires).
+    - Fetches timeseries data for a selected metric, interval, and optional subject (participant) via API routes that proxy to RADAR-base-compatible backends (e.g. Grafana-backed endpoints).
+  - Ensure dashboards can be configured for multiple data sources (e.g. Fitbit, Garmin, questionnaires) and metrics (e.g. heart rate, steps, sleep, adherence scores), using the existing metric identifiers and types.
+
+- **Implement AI-assisted dashboard features**
+  - Add AI-assisted configuration flows that use LLMs or simple recommender logic to:
+    - Suggest relevant widgets or metrics given:
+      - The project’s available data sources and metrics catalogue.
+      - The user’s current context (e.g. “participant-level vs cohort-level”, date range).
+    - Propose smart default dashboards or “recipes” (e.g. “adherence overview”, “sleep vs activity over last month”).
+  - Optionally provide natural-language summaries of the data shown in a widget (e.g. a short text description of trends, outliers, or distributions) to assist non-technical users.
+  - Design these features so that the AI layer is optional and pluggable (e.g. can use an open-source LLM or a user-provided API key).
+
+- **Improve data download and management flows (optional stretch)**
+  - Build on the existing step-based raw data download flow to integrate it more closely with dashboard selections (e.g. “download the data underlying this chart”).
+  - Ensure that dashboard configuration and data download use a consistent concept of projects, participants, devices/sources, and metrics.
+
+- **Document the dashboard framework and AI features**
+  - Write developer documentation describing:
+    - The dashboard/widget data model.
+    - How the metrics catalogue and timeseries APIs are used.
+    - How to extend dashboards with new data sources or visualizations.
+  - Write user-facing documentation or inline help for researchers on:
+    - Creating and managing dashboards.
+    - Using AI-assisted suggestions and summaries.
+    - Interpreting common types of charts used in the portal.
+
+| Milestones             | Description                                                                                                                                                |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Requirements & design  | Review current participant/cohort dashboards and data services; identify key user workflows, supported data sources, and AI-assisted use cases; design a simple dashboard + widget configuration model and high-level architecture. |
+| Dashboard framework    | Refactor existing widget components into a reusable dashboard framework (per-project/per-user configurations, load/save, unified participant vs cohort handling).                                  |
+| Dashboard UI & layout  | Implement the dashboard screen with drag-and-drop widget layout, resizing/full-width options, and improved widget management UI (add/remove/edit) using the existing charting layer.              |
+| AI-assisted features   | Integrate AI-assisted flows for suggesting widgets/metrics and smart default dashboards; optionally add natural-language summaries of selected widgets’ data.                                      |
+| Integration & handover | Harden integration with existing RADAR-base APIs (metrics catalogue, timeseries, participants/projects); add tests and write developer + user documentation.                                     |
+
+**Required Skills:** Frontend development (React / Next.js with TypeScript), REST/JSON APIs, basic understanding of data visualization. Familiarity with AI/ML concepts or LLM APIs is beneficial but not required; mentoring will help scope and integrate AI-assisted features safely.
 
 **Difficulty:** Medium–Hard
 
