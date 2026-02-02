@@ -54,18 +54,34 @@ flowchart LR
 
 **Overview**: RADAR-base currently provides infrastructure-as-code templates for specific environments. This project aims to extend those templates to support deployment on Google Cloud Platform (GCP) and Google Kubernetes Engine (GKE) in a reproducible, secure, and scalable way. We already support AWS and Azure.
 
-TBD: Add info on the repos
+This work is expected to touch the following RADAR-base repository:
+
+- [RADAR-K8s-Infrastructure](https://github.com/RADAR-base/RADAR-K8s-Infrastructure) - A new `gcp` folder should be created in this repo for GCP-specific infrastructure modules.
 
 **Goals:**
 
-TBD: Add specific goals and what we aim to achieve with this work. Link to Azure PR work.
-TBD: add architecture diagram (include any managed services)
+The goal is to deliver production-ready infrastructure-as-code for deploying RADAR-base on GCP/GKE, following the patterns established for AWS and Azure deployments. This will enable RADAR-base studies to leverage GCP's managed services for improved reliability, security, and cost optimization.
 
 | Milestones                                  | Description                                                                                       |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | GCP/GKE architecture and environment design | Define target architecture, networking, security, and required managed services on GCP/GKE.       |
 | Implement IaC modules for GCP/GKE           | Add Terraform/Helm/Kubernetes manifests (or similar) for deploying RADAR-base components on GKE.  |
 | CI/CD and documentation                     | Add automated deployment/testing workflows and user-facing documentation for GCP/GKE deployments. |
+
+**Scope and Key Tasks:**
+
+- **Kubecost support for GKE**: Enable cost monitoring and optimization through Kubecost integration.
+- **Identify minimum RADAR-base components**: Determine the minimum set of radar-base components that need to be deployed.
+- **Cost estimation**: Estimate the costs and figure out who is going to pay for the usage.
+- **Create accounts for team members**: Set up access for team members to GCP/GKE.
+- **Develop Terraform modules for GCP**: Mirror the functionality of existing AWS and Azure modules (VPC/Networking, GKE Cluster, Managed Databases).
+- **Alignment with Azure/AWS Patterns**: Follow the established pattern of splitting the IaC into cluster (base infrastructure) and config (DNS, SSL via Cert-Manager, and external-dns) layers.
+- **GCP Workload Identity**: Implement GCP Workload Identity to allow GKE pods to securely access GCP services without static service account keys.
+- **Managed Service Integration**: Integrate GKE with GCP-native managed services:
+  - **Cloud KMS / Secret Manager**: For secure credential handling.
+  - **Artifact Registry**: For hosting container images.
+  - **Google Cloud Storage (GCS)**: To replace MinIO for long-term data storage and Velero backups.
+  - **Cloud SQL (PostgreSQL)**: To replace in-cluster Postgres for better reliability.
 
 **Required Skills:** Terraform, Kubernetes, GCP, Infrastructure-as-Code
 
