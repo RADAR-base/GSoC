@@ -217,28 +217,44 @@ TBD: add any screenshots and things we would like to improve, including any wire
 
 ---
 
-### 8. Automation, load testing, and observability
+### 8. Automation and Load Testing for RADAR-base
 
-**Overview**: This project will improve automation around performance and reliability testing, and enhance observability and error analysis (including log scanning and LLM-assisted tooling).
+**Overview**: This project will improve performance and reliability testing in the RADAR-base platform by introducing automated load testing and basic anomaly detection for core backend services.
 
-TBD: Add info on the repos/link to existing work (gatling tests, pauline's LLM-assisted bigquery app, etc)
+RADAR-base is an open-source platform for collecting, managing, and analyzing multimodal data for health research studies. While the platform includes monitoring and logging, performance regressions and reliability issues are not consistently tested in an automated way.
+
+The project will focus on automating load tests for key RADAR-base services and using Prometheus metrics to detect performance and error anomalies. The primary goal is to make performance regressions visible early and provide maintainers with simple, repeatable testing workflows integrated into CI.
+
+The project will build on existing RADAR-base services and Prometheus-based monitoring, introducing new Gatling-based load tests without adding complex or high-maintenance systems.
 
 **Goals:**
 
-TBD: Add specific goals and what we aim to achieve with this work.
+By the end of the project, the student will:
 
-| Milestones                                        | Description                                                                                                                  |
-|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Load testing for core services                    | Design and run automated load tests for gateway, Hydra, and Kratos, integrating them into CI/CD where possible.             |
-| Observation tooling and log scanning              | Build or integrate tools for log scanning and observation to detect anomalies and regressions.                              |
-| Firebase events error log analysis                | Extend existing Firebase/BigQuery analysis tools (e.g. Pauline’s webapp) for better error and event analysis.               |
-| LLM-assisted analysis (e.g. Google AI Studio)     | Explore LLM-based workflows (e.g. via Google AI Studio) for triaging logs and errors and suggesting fixes.                  |
+- Implement automated load tests for RADAR-base core services (Gateway, Hydra, Kratos).
+- Collect latency and error metrics using Prometheus during load tests.
+- Define simple performance baselines and detect regressions using PromQL.
+- Integrate load testing and regression checks into CI/CD pipelines.
+- Document how maintainers can run and extend the tests.
 
-**Required Skills:** Scripting (Python/Bash), observability/monitoring stacks, cloud tooling, load testing frameworks
+**Optional / Stretch (if time permits):**
+
+- Add basic log-based error summaries.
+- Provide simple, human-readable explanations for detected regressions.
+
+| Milestones                  | Description                                                                                           |
+|-----------------------------|-------------------------------------------------------------------------------------------------------|
+| Requirements & design       | Identify target services, load scenarios, and key performance metrics.                               |
+| Load test implementation    | Design, implement, and run new Gatling load tests for core services.                                 |
+| Metrics & regression checks | Collect Prometheus metrics and define baseline-based regression rules.                               |
+| CI integration              | Run load tests and regression checks automatically in CI.                                            |
+| Documentation & handover    | Document usage, maintenance, and extension of the testing setup.                                     |
+
+**Required Skills:** Backend development, basic load testing, CI/CD pipelines, Prometheus or metrics-based monitoring.
 
 **Difficulty:** Medium
 
-**Expected Size:** TBD
+**Expected Size:** 350-hour (Full time)
 
 **Mentors**: @pauline, @xibai, @Mani Thumu
 
