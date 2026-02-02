@@ -27,4 +27,4 @@ Below is a high-level architecture diagram of the platform:
 ## About RADAR-base community
 RADAR-base community consists of software engineers, data scientists, researchers,operations engineers, bioinformaticians. The RADAR-base platform was build and maintained by [The Hyve B.V](https://www.thehyve.nl/) and [PhiDataLab](https://phidatalab.org/) at King's College London under the IMI RADAR-CNS and IMI RADAR-AD project. 
 
-Currently, the platform has been used by many academic institutes and research organizations to conduct remote monitoring studies. Read about the research studies which use RADAR-base [here](https://radar-base.org/index.php/project/](https://radar-base.org/case-studies/). 
+Currently, the platform has been used by many academic institutes and research organizations to conduct remote monitoring studies. Read about the research studies which use RADAR-base [here](https://radar-base.org/case-studies/). 
