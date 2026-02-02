@@ -106,10 +106,10 @@ The last leg of the project is to develop a sensor data simulation to generate v
 | Milestones                                        | Description                                                                                                           |
 | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | DAG from configuration                            | Implement a configuration-driven DAG definition and execution layer for the real-time pipeline.            |
-| Model training on non-identifiable/synthetic data | Enable model training using synthetic or anonymised data (e.g. engagement metrics) to preserve privacy.               |
 | ML / Foundation model support                     | Add support for integrating ML or foundation models (e.g. for prediction, anomaly detection, or feature extraction).  |
 | Real-time sensor simulator                        | Build a sensor simulator for reinforcement learning and framework testing, driven by existing datasets and scenarios. |
-| Adverse-event simulation                          | Implement triggers for adverse events (e.g. heart rate, depression-related metrics) as part of the simulator.         |
+| Model training on non-identifiable/synthetic data (Optional) | Enable model training using synthetic or anonymised data (e.g. engagement metrics) to preserve privacy.              |
+| Adverse-event simulation (Optional)                          | Implement triggers for adverse events (e.g. heart rate, depression-related metrics) as part of the simulator. |
 
 **Required Skills:** Python, streaming frameworks (Kafka/KSQL), ML, MLOps, Apache Airflow
 
