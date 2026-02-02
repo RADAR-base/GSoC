@@ -121,26 +121,37 @@ The last leg of the project is to develop a sensor data simulation to generate v
 
 ---
 
-### 4. Improved backend for Researcher management portal
+### 4. Researcher Portal Dashboards with AI-Assisted Features
 
-**Overview**: The Researcher backend will power flexible, interactive tools for researchers, including dashboard and widget-based interfaces with AI-assisted and dynamic UI features.
+**Overview**: This project will extend an existing RADAR-base Researcher Portal frontend (Next.js + TypeScript) that already includes participant-level and cohort-level data views composed of configurable visualization widgets. The goal is to turn these into first-class, configurable dashboards with AI-assisted assistance for configuring views, choosing metrics, and interpreting data.
 
-TBD: Add info on the repos
+RADAR-base is an open-source platform for collecting, managing, and analyzing multimodal data for health research (e.g. wearables, mobile apps, questionnaires). The current prototype Researcher Portal integrates with RADAR-base-compatible APIs to fetch metric metadata and timeseries data (e.g. via a metrics catalogue and `/metrics/timeseries` endpoints) and renders them using an ApexCharts-based visualization layer. Researchers can already switch between participant and cohort views, add per-widget visualizations backed by a shared data service and metric catalogue, select metrics from devices (e.g. steps, heart rate, sleep, calories) and questionnaires, view data as line/bar/area/scatter plots, filter by participant and date range, and persist basic widget configuration in the browser (via `localStorage`).
+
+However, there is no unified dashboard model, no drag-and-drop layout, and only minimal UI guidance for selecting useful metrics or views.
+
+This GSoC project will build on this existing codebase to deliver a more powerful, reusable dashboard framework and introduce AI-assisted UI features that help researchers configure dashboards, pick appropriate visualizations, and explore data more effectively, while keeping the architecture simple and maintainable.
 
 **Goals:**
 
-TBD: Add specific goals and what we aim to achieve with this work. Link to exisitng old APIs (MP, rest-sources, etc)
-TBD: add architecture diagram
+By the end of the project, the student will:
 
-| Milestones                               | Description                                                                                                    |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| Dashboard / widget framework             | Design and implement a backend API for configurable dashboards and widget-based layouts.                       |
-| AI-based and dynamic UI features         | Explore and implement AI-assisted features (e.g. smart filters, recommendations) and dynamic UI configuration. |
-| Integration with existing RADAR services | Integrate the new backend components with existing RADAR-base auth, data, and configuration services.          |
+- Build a reusable dashboard framework that extends the existing widget system, supporting per-study/per-user dashboards with save/load/sharing capabilities beyond `localStorage`.
+- Enhance the dashboard UI with drag-and-drop widget layout, optional resizing, and improved widget management, while reusing the existing ApexCharts visualization layer.
+- Integrate with existing RADAR-base metrics catalogue and timeseries APIs to support multiple data sources (Fitbit, Garmin, questionnaires) and metrics (heart rate, steps, sleep, adherence scores).
+- Implement optional AI-assisted features for suggesting widgets/metrics and smart default dashboards, with a pluggable AI layer that can use open-source LLMs or user-provided API keys.
+- Document the dashboard framework, APIs, and AI features for both developers and end users.
 
-**Required Skills:** Java/Kotlin, REST APIs, React, JS/TS, backend architecture
+| Milestones             | Description                                                                                                                                                |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Requirements & design  | Review current participant/cohort dashboards and data services; identify key user workflows, supported data sources, and AI-assisted use cases; design a simple dashboard + widget configuration model and high-level architecture. |
+| Dashboard framework    | Refactor existing widget components into a reusable dashboard framework (per-project/per-user configurations, load/save, unified participant vs cohort handling).                                  |
+| Dashboard UI & layout (Optional) | Implement the dashboard screen with drag-and-drop widget layout, resizing/full-width options, and improved widget management UI (add/remove/edit) using the existing charting layer.              |
+| AI-assisted features (Optional) | Integrate AI-assisted flows for suggesting widgets/metrics and smart default dashboards; optionally add natural-language summaries of selected widgets’ data.                                      |
+| Integration & handover | Harden integration with existing RADAR-base APIs (metrics catalogue, timeseries, participants/projects); add tests and write developer + user documentation.                                     |
 
-**Difficulty:** Medium-Hard
+**Required Skills:** Frontend development (React / Next.js with TypeScript), REST/JSON APIs, basic understanding of data visualization. Familiarity with AI/ML concepts or LLM APIs is beneficial but not required; mentoring will help scope and integrate AI-assisted features safely.
+
+**Difficulty:** Medium–Hard
 
 **Expected Size:** 350-hour (Full time)
 
@@ -229,28 +240,50 @@ TBD: add any screenshots and things we would like to improve, including any wire
 
 ---
 
-### 8. Automation, load testing, and observability
+### 8. Automation and Load Testing 
 
-**Overview**: This project will improve automation around performance and reliability testing, and enhance observability and error analysis (including log scanning and LLM-assisted tooling).
+**Overview**: This project will improve performance and reliability testing in the RADAR-base platform by introducing automated load testing and basic anomaly detection for core backend services.
 
-TBD: Add info on the repos/link to existing work (gatling tests, pauline's LLM-assisted bigquery app, etc)
+RADAR-base is an open-source platform for collecting, managing, and analyzing multimodal data for health research studies. While the platform includes monitoring and logging, performance regressions and reliability issues are not consistently tested in an automated way.
+
+The project will focus on automating load tests for key RADAR-base services and using Prometheus metrics to detect performance and error anomalies. The primary goal is to make performance regressions visible early and provide maintainers with simple, repeatable testing workflows integrated into CI.
+
+The project will build on existing RADAR-base services and Prometheus-based monitoring, introducing new Gatling-based load tests without adding complex or high-maintenance systems.
+
+This work is expected to touch multiple RADAR-base repositories, typically:
+
+- [radar-gateway](https://github.com/RADAR-base/radar-gateway) (core API gateway and ingress for RADAR-base services, a primary target for load tests and metrics).
+- [RADAR-Kubernetes](https://github.com/RADAR-base/RADAR-Kubernetes) (deployment, configuration, and CI/CD integration of the load testing and monitoring workflows).
+- [radar-self-enrolment-ui](https://github.com/RADAR-base/radar-self-enrolment-ui) (user-facing flows that can be exercised during end-to-end load and reliability scenarios).
 
 **Goals:**
 
-TBD: Add specific goals and what we aim to achieve with this work.
+By the end of the project, the student will:
 
-| Milestones                                    | Description                                                                                                     |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Load testing for core services                | Design and run automated load tests for gateway, Hydra, and Kratos, integrating them into CI/CD where possible. |
-| Observation tooling and log scanning          | Build or integrate tools for log scanning and observation to detect anomalies and regressions.                  |
-| Firebase events error log analysis            | Extend existing Firebase/BigQuery analysis tools (e.g. Pauline’s webapp) for better error and event analysis.  |
-| LLM-assisted analysis (e.g. Google AI Studio) | Explore LLM-based workflows (e.g. via Google AI Studio) for triaging logs and errors and suggesting fixes.      |
+- Implement automated load tests for RADAR-base core services (Gateway, Hydra, Kratos).
+- Collect latency and error metrics using Prometheus during load tests.
+- Define simple performance baselines and detect regressions using PromQL.
+- Integrate load testing and regression checks into CI/CD pipelines.
+- Document how maintainers can run and extend the tests.
 
-**Required Skills:** Scripting (Python/Bash), observability/monitoring stacks, cloud tooling, load testing frameworks
+**Optional / Stretch (if time permits):**
+
+- Add basic log-based error summaries.
+- Provide simple, human-readable explanations for detected regressions.
+
+| Milestones                  | Description                                                                                           |
+|-----------------------------|-------------------------------------------------------------------------------------------------------|
+| Requirements & design       | Identify target services, load scenarios, and key performance metrics.                               |
+| Load test implementation    | Design, implement, and run new Gatling load tests for core services.                                 |
+| Metrics & regression checks | Collect Prometheus metrics and define baseline-based regression rules.                               |
+| CI integration              | Run load tests and regression checks automatically in CI.                                            |
+| Documentation & handover    | Document usage, maintenance, and extension of the testing setup.                                     |
+
+**Required Skills:** Backend development, basic load testing, CI/CD pipelines, Prometheus or metrics-based monitoring.
 
 **Difficulty:** Medium
 
-**Expected Size:** TBD
+**Expected Size:** 350-hour (Full time)
 
 **Mentors**: @pauline, @xibai, @Mani Thumu
 
